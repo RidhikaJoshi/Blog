@@ -33,8 +33,10 @@ function LoginPage() {
         authService.login(email,password).then((user)=>{
           if(user!=undefined)
           {
-            dispatch(login({userData:user}));
-            navigate('/');
+            toast.success('Logged in successfully');
+              dispatch(login({userData:user}));
+              navigate('/');
+            
           }
           else
           {

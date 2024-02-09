@@ -31,7 +31,7 @@ function App() {
     else
     {
         return(
-          <div className='font-serif bg-black min-h-[100vh]'>
+          <div className='font-serif italic bg-black min-h-[100vh]'>
           <Header/>
             {/* <h1>Appwrite Auth</h1> */}
             <Outlet/>

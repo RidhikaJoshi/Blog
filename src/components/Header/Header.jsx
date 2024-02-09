@@ -47,17 +47,17 @@ function Header() {
     {/* This div contains list of navigation options */}
       
         <ul className='md:flex md:flex-row md:gap-6 md:text-lg md:items-center'>
-          {navItems.map((item,index)=>{
-          if(item.active)
-            return (
-              <li
-                className={`cursor-pointer ${item.name === "Login" || item.name === "SignUp"   ? 'bg-[#FD356D] px-4 py-2 rounded-full' : 'hover:text-[#FD356D]'}`}
-                onClick={() => navigate(item.slug)}
-                key={index}
-              >
-                {item.name}
-              </li>
-            );
+          {navItems.map((item, index) => {
+            if (item.active)
+              return (
+                <li
+                  className={`cursor-pointer ${item.name === "Login" || item.name === "SignUp" ? 'bg-[#FD356D] px-4 py-2 rounded-full' : 'hover:text-[#FD356D]'} `}
+                  onClick={() => navigate(item.slug)}
+                  key={index}
+                >
+                 {item.name}
+                </li>
+              );
           })}
           {authStatus && (<li><Logoutbtn/></li>)}
         </ul>
