@@ -7,7 +7,8 @@ import  {useNavigate} from 'react-router-dom'
 
 function Header() {
 
-    const authStatus=useSelector((state)=>state.status);
+    const authStatus=useSelector((state)=>state.auth.status);
+    console.log(`${authStatus} ReloadHeader`);
     const navigate=useNavigate();
 
     const navItems =[

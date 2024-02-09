@@ -42,11 +42,12 @@ export class AuthService {
 	// this method is used to get current user info
 	async getCurrentUser() {
 		try {
-			return await this.account.get();
+			const user = await this.account.get();
+			if (user) return user;
+			else return null;
 		} catch (error) {
-			console.log("Appwrite getCurrentUser error", error);
+			return null;
 		}
-		return null;
 	}
 	// this method is for the logout
 	async logout() {
