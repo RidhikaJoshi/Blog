@@ -28,7 +28,7 @@ export class AuthService {
 				return userAccount;
 			}
 		} catch (error) {
-			throw error;
+			console.log("Appwrite createAccount error", error);
 		}
 	}
 	// this method is used for login
@@ -36,7 +36,7 @@ export class AuthService {
 		try {
 			return await this.account.createEmailSession(email, password);
 		} catch (error) {
-			throw error;
+			console.log("Appwrite login error", error);
 		}
 	}
 	// this method is used to get current user info
@@ -44,7 +44,7 @@ export class AuthService {
 		try {
 			return await this.account.get();
 		} catch (error) {
-			throw error;
+			console.log("Appwrite getCurrentUser error", error);
 		}
 		return null;
 	}
@@ -54,7 +54,7 @@ export class AuthService {
 			return await this.account.deleteSessions();
 			// used to delete all the sessions of the current user
 		} catch (error) {
-			throw error;
+			console.log("Appwrite logout error", error);
 		}
 	}
 }

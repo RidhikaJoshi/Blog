@@ -30,7 +30,7 @@ export class DatabaseService {
 				}
 			);
 		} catch (error) {
-			throw error;
+			console.log("Appwrite createPost error", error);
 		}
 	}
 	// this method handles to update any existing post
