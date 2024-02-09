@@ -22,16 +22,16 @@ function SignUp() {
     }
 
   return (
-    <div className='bg-green-500 w-full min-h-96 flex items-center justify-center'>
-        <div className='bg-red-300 w-[80%] min-h-96 flex items-center justify-center text-xl font-medium'>
-            <div className='flex flex-col justify-evenly gap-4'>
-                <label >Name: </label>
+    <div className='w-full min-h-[85vh] flex items-center justify-center'>
+        <div className=' w-[80%] flex items-center justify-center text-xl font-medium'>
+            <div className='flex flex-col justify-evenly gap-4 border-2 border-white p-8 rounded-xl'>
+                <label className='text-[#FD356D]'>Name: </label>
                   <input type="text" name="name" value={name} onChange={(e)=>setName(e.target.value)} required/>
-                <label >Email: </label>
+                <label  className='text-[#FD356D]'>Email: </label>
                   <input type="email" name="email" value={email} onChange={(e)=>setEmail(e.target.value)} required/>
-                <label >Password: </label>
+                <label  className='text-[#FD356D]'>Password: </label>
                   <input type="password" name="password" value={password} onChange={(e)=>setPassword(e.target.value)} required />
-                <button type='submit' onClick={SignUpHandler}>SignUp</button>
+                <button  className='text-[#FD356D] border-2 border-[#FD356D]' type='submit' onClick={SignUpHandler}>SignUp</button>
             </div>
 
         </div>

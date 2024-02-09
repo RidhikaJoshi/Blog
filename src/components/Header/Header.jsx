@@ -40,7 +40,7 @@ function Header() {
     ];
 
   return (
-   <div className='transparent border-b-[0.5px] border-white text-white  w-full h-16 flex flex-row items-center justify-between p-8'>
+   <div className='transparent border-b-[0.5px] border-white text-white  w-full h-[5vh] flex flex-row items-center justify-between p-8'>
         {/* This div contains logo */}
       <div className='text-[#FD356D] italic text-xl cursor-pointer'><Link to='/'>Blogs</Link></div>
 
