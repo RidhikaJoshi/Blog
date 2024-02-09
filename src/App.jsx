@@ -26,14 +26,14 @@ function App() {
 
     if(loading==true)
     {
-      return <div>Loading...</div>
+      return <div className='text-2xl font-bold'>Loading...</div>
     }
     else
     {
         return(
-          <div className='min-h-[100vh] bg-slate-600 m-0'>
+          <div className='font-serif'>
           <Header/>
-            <h1 className='text-white text-2xl'>Appwrite Auth</h1>
+            <h1>Appwrite Auth</h1>
             <Outlet/>
           <Footer/>
           </div>
