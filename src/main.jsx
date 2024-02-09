@@ -5,12 +5,18 @@ import './index.css'
 import store from './store/store.js'
 import { Provider } from 'react-redux'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import LoginPage from './pages/LoginPage.jsx'
 
 const router=createBrowserRouter([
   {
     path:'/',
     element:<App/>,
-    children:[]
+    children:[
+      {
+        path:'login',
+        element:<LoginPage/>
+      }
+    ]
   }
 ]);
 

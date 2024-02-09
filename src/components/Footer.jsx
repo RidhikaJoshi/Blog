@@ -2,8 +2,8 @@ import React from 'react'
 
 function Footer() {
   return (
-    <div className='bg-slate-400 w-full h-12 flex flex-row items-center justify-center'>
-      <div>&copy; Ridhika Joshi. All Rights Reserved.</div>
+    <div className='transparent border-t-[0.5px] border-white text-white w-full h-12 flex flex-row items-center justify-center'>
+      <div className='text-[#FD356D]'>&copy; Ridhika Joshi. All Rights Reserved.</div>
     </div>
   )
 }

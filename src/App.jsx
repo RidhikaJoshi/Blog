@@ -4,7 +4,7 @@ import React,{ useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import authService from './appwrite/auth.js'
 import { login ,logout} from './store/authSlice.js'
-import Header from './components/Header.jsx'
+import Header from './components/Header/Header.jsx'
 import Footer from './components/Footer.jsx'
 import { Outlet } from 'react-router-dom'
 
@@ -26,14 +26,14 @@ function App() {
 
     if(loading==true)
     {
-      return <div className='text-2xl font-bold'>Loading...</div>
+      return <div className='text-3xl font-bold bg-black text-[#FD356D] w-full h-[100vh] flex items-center justify-center'>Loading...</div>
     }
     else
     {
         return(
-          <div className='font-serif'>
+          <div className='font-serif bg-black min-h-[100vh]'>
           <Header/>
-            <h1>Appwrite Auth</h1>
+            {/* <h1>Appwrite Auth</h1> */}
             <Outlet/>
           <Footer/>
           </div>
