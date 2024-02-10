@@ -16,7 +16,7 @@ function LoginPage() {
     const navigate=useNavigate();
 
 
-    const loginHandler=(e)=>{
+    const loginHandler=async (e)=>{
         e.preventDefault();
         if(email===''||password===''||email===undefined||password===undefined)
         {

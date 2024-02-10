@@ -24,7 +24,7 @@ function BlogPage() {
   return (
     <div className='w-full min-h-[85vh] flex items-center justify-center'>
         <div className='min-h-[85vh] w-[90%] flex flex-row items-center justify-center text-xl font-medium gap-10 p-10'>
-           <div className='w-full min-h-96 flex flex-row flex-wrap gap-4 bg-red-400 justify-evenly'>
+           <div className='w-full min-h-96 flex flex-row flex-wrap gap-4  justify-evenly'>
              {allPosts.length > 0 &&
                         allPosts.map((post) => (
                             <PostCard

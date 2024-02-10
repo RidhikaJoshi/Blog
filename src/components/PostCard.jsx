@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 function PostCard({$id,title,featuredImage}) {
     return (
      <Link to={`/post/${$id}`}>
-        <div className='w-80 h-96 bg-green-700 text-white flex flex-col justify-between items-center gap-4'>
+        <div className='w-80 h-96 p-3 border-[1px] border-white text-white flex flex-col justify-between items-center gap-4'>
                 <img src={featuredImage} alt={title} className='h-[60%] w-full'/>
                 <h2 className='text-xl font-bold'>{title}</h2>
                 <button className='bg-[#FD356D] px-4 py-2 rounded-full'>Read</button>

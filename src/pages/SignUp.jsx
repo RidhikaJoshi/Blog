@@ -17,7 +17,7 @@ function SignUp() {
   const dispatch = useDispatch();
 
 
-  const SignUpHandler = (e) => {
+  const SignUpHandler = async (e) => {
     e.preventDefault();
     if(name===''||email===''||password===''||name===undefined||email===undefined||password===undefined)
     {
@@ -36,8 +36,8 @@ function SignUp() {
       setEmail('');
       return;
     }
-    authService.createAccount({ name, email, password }).then((user) => {
-      //console.log(user);
+    const user=await authService.createAccount({ name, email, password })
+      console.log(user);
       if(user!==undefined)
       {
         dispatch(login({ userData: user }));
@@ -49,7 +49,7 @@ function SignUp() {
         setEmail('');
         setPassword('');
       }
-    })
+  
   }
 
   return (
@@ -62,7 +62,7 @@ function SignUp() {
           <input type="email" name="email" value={email} className='h-10 italic outline-none p-4' placeholder='Enter Email' onChange={(e) => setEmail(e.target.value)} required />
           <label className='text-[#FD356D]'>Password: </label>
           <input type="password" name="password" value={password} className='h-10 italic outline-none p-4' placeholder='Enter Password' onChange={(e) => setPassword(e.target.value)} required />
-          <button className='text-white italic bg-[#FD356D] px-4 py-2 rounded-full ' type='submit' onClick={SignUpHandler}>SignUp</button>
+          <button className='text-white italic bg-[#FD356D] px-4 py-2 rounded-full ' type='submit' onClick={SignUpHandler}>Create Account</button>
           <p className='text-white'>Already have an acoount? <Link to='/login' className='text-[#FD356D]'>Login</Link></p>
           <ToastContainer 
                 style={{
