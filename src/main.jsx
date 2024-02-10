@@ -10,6 +10,7 @@ import SignUp from './pages/SignUp.jsx'
 import HomePage from './pages/HomePage.jsx'
 import BlogPage from './pages/BlogPage.jsx'
 import WriteBlogs from './pages/WriteBlogs.jsx'
+import PostPage from './pages/PostPage.jsx'
 
 const router=createBrowserRouter([
   {
@@ -30,7 +31,11 @@ const router=createBrowserRouter([
       },
       {
         path:'blogs',
-        element:<BlogPage/>
+        element:<BlogPage/>,
+        children:
+        [
+          
+        ]
       },
       {
         path:'write',
