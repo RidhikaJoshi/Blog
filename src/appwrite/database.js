@@ -87,7 +87,7 @@ export class DatabaseService {
 			return await this.databases.listDocuments(
 				config.appwriteDatabaseId,
 				config.appwriteCollectionId,
-				[Query.Equal("status", "active")]
+				[Query.equal("status", "active")]
 			);
 		} catch (error) {
 			console.log("Appwrite getAllPosts error", error);
