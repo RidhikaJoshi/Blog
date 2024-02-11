@@ -15,7 +15,7 @@ export class DatabaseService {
 		this.bucket = new Storage(this.client);
 	}
 	// this mthod handles to create any new post
-	async createPost({ title, slug, content, featuredImage, status, userId }) {
+	async createPost({ title, slug, content, featuredimage, status, userId }) {
 		try {
 			return await this.databases.createDocument(
 				config.appwriteDatabaseId,
@@ -24,7 +24,7 @@ export class DatabaseService {
 				{
 					title,
 					content,
-					featuredImage,
+					featuredimage,
 					status,
 					userId,
 				}
@@ -70,11 +70,13 @@ export class DatabaseService {
 	// this method is used to fetch any post by its slug
 	async getPost(slug) {
 		try {
-			return await this.databases.getDocument(
+			const response = await this.databases.getDocument(
 				config.appwriteDatabaseId,
 				config.appwriteCollectionId,
 				slug
 			);
+			// console.log(response);
+			return response;
 		} catch (error) {
 			console.log("Appwrite getPost error", error);
 		}
@@ -101,11 +103,12 @@ export class DatabaseService {
 		// console.log(config.appwriteBucketId);
 
 		try {
-			const response = await this.storage.createFile(
+			const response = await this.bucket.createFile(
 				config.appwriteBucketId,
 				ID.unique(),
 				file
 			);
+			console.log(response);
 			return response;
 		} catch (error) {
 			console.error(error);
@@ -127,7 +130,12 @@ export class DatabaseService {
 	//  THIS METHOD IS USED FOR GEETING FILE PREVIEW
 	async getfilepreviw(fileId) {
 		try {
-			return await this.bucket.getFilePreview(config.appwriteBucketId, fileId);
+			const response = this.bucket.getFilePreview(
+				config.appwriteBucketId,
+				fileId
+			);
+			// console.log("response:", response.href);
+			return response.href;
 		} catch (error) {
 			console.log("Appwrite getfilepreviw error", error);
 		}
