@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
+import ReactDOM from 'react-dom'
 import App from './App.jsx'
 import './index.css'
 import store from './store/store.js'
@@ -10,7 +10,7 @@ import SignUp from './pages/SignUp.jsx'
 import HomePage from './pages/HomePage.jsx'
 import BlogPage from './pages/BlogPage.jsx'
 import WriteBlogs from './pages/WriteBlogs.jsx'
-import PostPage from './pages/PostPage.jsx'
+import ReadBlog from './pages/ReadBlog.jsx'
 
 const router=createBrowserRouter([
   {
@@ -31,24 +31,25 @@ const router=createBrowserRouter([
       },
       {
         path:'blogs',
-        element:<BlogPage/>,
-        children:
-        [
-          
-        ]
+        element:<BlogPage/>
       },
       {
         path:'write',
         element:<WriteBlogs/>
+      },
+      {
+        path:'blogs/:id',
+        element:<ReadBlog/>
       }
     ]
   }
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.render(
   <React.StrictMode>
   <Provider store={store}>
     <RouterProvider router={router}/>
   </Provider>
-  </React.StrictMode>
-)
+  </React.StrictMode>,
+  document.getElementById('root')
+);
