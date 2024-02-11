@@ -29,12 +29,12 @@ function WriteBlogs() {
     console.log(userId.$id);
     console.log(image);
     const file_upload=await service.uploadFile(image);
-    console.log(file_upload );
+    console.log(file_upload.$id);
     const blog = {
       title,
       slug,
       content,
-      featuredImage:file_upload,
+      featuredimage:file_upload.$id,
       status,
       userId: userId.$id 
     };

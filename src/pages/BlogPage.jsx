@@ -31,7 +31,7 @@ function BlogPage() {
                                 key={post.$id}
                                 $id={post.$id}
                                 title={post.title}
-                                featuredImage={post.featuredimage}
+                                featuredImage={(post.featuredimage)}
                             />
                         ))}
            </div>
