@@ -18,7 +18,7 @@ export class DatabaseService {
 	async createPost({ title, slug, content, featuredImage, status, userId }) {
 		try {
 			return await this.databases.createDocument(
-				confing.appwriteDatabaseId,
+				config.appwriteDatabaseId,
 				config.appwriteCollectionId,
 				slug,
 				{
@@ -97,16 +97,20 @@ export class DatabaseService {
 
 	// this method is used to upload any file to the appwrite storage
 	async uploadFile(file) {
+		// console.log(file);
+		// console.log(config.appwriteBucketId);
+
 		try {
-			return await this.bucket.createFile(
+			const response = await this.storage.createFile(
 				config.appwriteBucketId,
 				ID.unique(),
 				file
 			);
+			return response;
 		} catch (error) {
-			console.log("Appwrite uploadFile error", error);
+			console.error(error);
+			return false;
 		}
-		return false;
 	}
 
 	// this method is used to delete any file from the appwrite storage

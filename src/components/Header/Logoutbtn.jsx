@@ -4,14 +4,16 @@ import authService from '../../appwrite/auth'
 import {logout } from '../../store/authSlice'
 import { ToastContainer,toast,Bounce } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { useNavigate } from 'react-router-dom'
 
 
 function Logoutbtn() {
     const dispatch=useDispatch();
-
+    const navigate=useNavigate();
     const logoutHandler=()=>{
         authService.logout().then(()=>{
             dispatch(logout());
+            navigate('/');
             toast.success('Logged out successfully');
         })
     }
