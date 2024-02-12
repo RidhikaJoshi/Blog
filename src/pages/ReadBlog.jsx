@@ -63,6 +63,19 @@ function ReadBlog() {
         fetchImage();
     }, [post && post.featuredimage]);
 
+
+    const handleDelete = async () => {
+        try {
+            const response = await service.deletePost(slug.id);
+            console.log('response:', response);
+            if (response) {
+                navigate('/blogs');
+            }
+        } catch (error) {
+            console.log('Error occured while deleting post', error);
+        }
+    }
+
   return (
    <div className='w-full min-h-[85vh] flex items-center justify-center'>
         <div className=' min-h-[85vh] md:w-[90%] w-full flex flex-row items-center justify-center text-xl font-medium '>
@@ -76,7 +89,7 @@ function ReadBlog() {
                         <button className='bg-[#FD356D] text-white px-4 py-2 rounded-md' 
                         onClick={()=>navigate('/write/'+slug.id)
                         }>Edit</button>
-                        <button className='bg-[#FD356D] text-white px-4 py-2 rounded-md' >Delete</button>
+                        <button className='bg-[#FD356D] text-white px-4 py-2 rounded-md' onClick={handleDelete}>Delete</button>
                         </div>}
                 </div>
            
