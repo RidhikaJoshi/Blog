@@ -23,7 +23,7 @@ function BlogPage() {
 
   return (
      <div className='w-[100%] min-h-[85vh]  flex items-center justify-center'>
-        <div className='min-h-[85vh]  md:w-[50%] w-[100%] flex flex-col items-center justify-center text-xl font-medium gap-10 p-10'>
+        <div className='min-h-[85vh]  md:w-[90%] w-[100%] flex flex-col items-center justify-center text-xl font-medium gap-10 p-10'>
            <div className='w-full  min-h-96 flex flex-row flex-wrap gap-4  justify-evenly'>
              {allPosts.length > 0 &&
                         allPosts.map((post) => (
