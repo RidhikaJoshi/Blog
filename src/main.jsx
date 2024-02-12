@@ -40,6 +40,10 @@ const router=createBrowserRouter([
       {
         path:'blogs/:id',
         element:<ReadBlog/>
+      },
+      {
+        path:'write/:id',
+        element:<WriteBlogs/>
       }
     ]
   }

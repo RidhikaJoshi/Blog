@@ -75,7 +75,7 @@ export class DatabaseService {
 				config.appwriteCollectionId,
 				slug
 			);
-			// console.log(response);
+			console.log("appwrite" + response);
 			return response;
 		} catch (error) {
 			console.log("Appwrite getPost error", error);
