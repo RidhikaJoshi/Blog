@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { login } from '../store/authSlice.js'
 import { Link } from 'react-router-dom'
 import { ToastContainer, toast,Bounce } from 'react-toastify';
-import "react-toastify/dist/ReactToastify.css";
+import 'react-toastify/dist/ReactToastify.css';
 
 function LoginPage() {
     const [email,setEmail]=useState('');
@@ -20,28 +20,66 @@ function LoginPage() {
         e.preventDefault();
         if(email===''||password===''||email===undefined||password===undefined)
         {
-          toast.warn('Please fill all the fields')
-          //console.log('Please fill all the fields');
+          toast.error('Please fill all the fields', {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                transition: Bounce,
+              });
           return;
         }
         if(password.length<8)
         {
-          toast.warn('Password should be atleast 8 characters long')
-          //console.log('Password should be atleast 8 characters long');
+          toast.error('Password should be atleast 8 characters long', {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                transition: Bounce,
+              });
           setPassword('');
           return;
         }
         authService.login(email,password).then((user)=>{
           if(user!=undefined)
           {
-            toast.success('Logged in successfully');
-              dispatch(login({userData:user}));
-              navigate('/');
+            dispatch(login({userData:user}));
+            navigate('/');
+            toast.error('Loggin Successfull!', {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                transition: Bounce,
+                });
             
           }
           else
           {
-            toast.error('Invalid email or password');
+            toast.error('Invalid Email or Password', {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                transition: Bounce,
+              });
             setEmail('');
             setPassword('');
             //console.log('Invalid email or password');
@@ -50,9 +88,9 @@ function LoginPage() {
     }
 
   return (
-    <div className='w-full min-h-[85vh] flex items-center justify-center'>
-        <div className=' w-[80%]  flex items-center justify-center text-xl font-medium'>
-            <div className='flex  flex-col justify-evenly border-2 border-white p-8 rounded-xl gap-6'>
+    <div className='w-[100%] min-h-[85vh]  flex items-center justify-center'>
+        <div className=' w-[80%]  flex items-center justify-center text-xl font-medium'> 
+             <div className='flex  flex-col justify-evenly border-2 border-white p-8 rounded-xl gap-6'>
                 <label className='text-[#FD356D]'>Email: </label>
                   <input type="email" name="email" value={email} className='h-10 italic outline-none p-4' placeholder='Enter Email' onChange={(e)=>setEmail(e.target.value)} required/>
                 <label className='text-[#FD356D]'>Password: </label>
@@ -62,7 +100,7 @@ function LoginPage() {
                   <ToastContainer 
                 style={{
                   position: "top-right",
-                  autoClose: 2000,
+                  autoClose: 1000,
                   hideProgressBar: false,
                   newestOnTop: false,
                   closeOnClick: true,
