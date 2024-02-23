@@ -23,7 +23,7 @@ function PostCard({$id,title,featuredImage}) {
     }, [featuredImage]);
     return (
      <Link to={`/blogs/${$id}`}>
-        <div className='w-80 h-96 p-3 bg-[#0F172A] rounded-xl text-white flex flex-col justify-between items-center gap-4'>
+        <div className='w-80 h-96 p-3 shadow-sm shadow-white rounded-xl text-white flex flex-col justify-between items-center gap-4'>
             {console.log('featuredImage:', service.getfilepreviw(featuredImage))}
                {imageURL && <img src={imageURL} alt={title} className='h-[60%] w-full rounded-xl' />}
                 <h2 className='text-xl font-bold'>{title}</h2>

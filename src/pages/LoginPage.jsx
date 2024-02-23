@@ -90,7 +90,7 @@ function LoginPage() {
   return (
      <div className='w-full min-h-[85vh] flex items-center justify-center'>
         <div className=' w-[80%]  flex items-center justify-center text-xl font-medium'>
-            <div className='flex  flex-col justify-evenly border-2 border-white p-6 rounded-xl gap-4'>
+            <div className='flex  flex-col justify-evenly shadow-sm shadow-white p-6 rounded-xl gap-4'>
                 <label className='text-[#FD356D]'>Email: </label>
                   <input type="email" name="email" value={email} className='h-10 italic outline-none p-4' placeholder='Enter Email' onChange={(e)=>setEmail(e.target.value)} required/>
                 <label className='text-[#FD356D]'>Password: </label>

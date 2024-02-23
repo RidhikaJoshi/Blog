@@ -101,7 +101,7 @@ function WriteBlogs() {
         <div className='min-h-[85vh] w-full flex flex-col  items-center justify-center text-xl font-medium gap-10 p-10'>
           {/* {console.log(import.meta.env.VITE_TINYMCE_API_KEY)}; */}
           {/* // this div contains write blog form */}
-          <div className=' bg-green-300  w-[80%] min-h-96 flex flex-col gap-4'>
+          <div className=' w-[80%] min-h-96 flex flex-col gap-4 '>
 
            <label className='text-[#FD356D]'>Enter the Title of the Blog: </label>
               <input type="text" name="text"  className='h-10 italic outline-none p-4' placeholder='Enter the Title of the Blog:' required value={title} 
