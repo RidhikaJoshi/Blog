@@ -24,15 +24,15 @@ function HomePage() {
         <div className='min-h-[65vh]   w-[90%] flex flex-col items-center justify-center text-xl font-medium gap-10 text-white'>
             <p className='italic font-bold md:text-4xl text-2xl text-center '><span className='text-[#FD356D]'>Blogging platform</span> optimized for software developers and technical writers.</p>
 
-        <div className=' text-white min-h-[40vh] w-full flex md:flex-row flex-col'>
+        <div className=' text-white min-h-[40vh] w-full flex md:flex-row flex-col justify-between'>
                                   {/* // Div contains text */}
-              <div className=' text-center md:w-[50%] w-full flex flex-col justify-center items-center p-4 gap-3'>
+        <div className=' text-center shadow-sm shadow-white rounded-xl md:w-[48%] w-full flex flex-col justify-center items-center p-4 gap-3'>
               <p className=' text-xl font-semibold'>Super-fast and SEO-optimized blogs built for developers and tech enthusiasts.</p>
               <p className='text-lg'>BlogSphere blogs are fast, up-to-date with SEO techniques, and score above 90 on all Lighthouse parameters. They're simple, elegant, and user-friendly.</p>
         </div>
 
       {/* // This div conatins image */}
-      <div className='md:w-[50%] w-full flex flex-wrap flex-row items-center justify-center'>
+      <div className='md:w-[48%] rounded-xl w-full flex flex-wrap flex-row items-center justify-center shadow-sm shadow-white'>
          <div className='flex flex-col justify-center items-center'>
                 <svg className="rotate-svg" width="118" height="118" viewBox="-14.75 -14.75 147.5 147.5" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <circle r="49" cx="59" cy="59" fill="transparent" stroke="#e0e0e0" strokeWidth="12" strokeDasharray="307.72px" strokeDashoffset="0"></circle>
