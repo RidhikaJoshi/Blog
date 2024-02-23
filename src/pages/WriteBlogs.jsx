@@ -106,7 +106,7 @@ function WriteBlogs() {
         <div className='min-h-[85vh] w-full flex flex-col  items-center justify-center text-xl font-medium gap-10 p-10'>
           {/* {console.log(import.meta.env.VITE_TINYMCE_API_KEY)}; */}
           {/* // this div contains write blog form */}
-          <div className=' w-[80%] min-h-96 flex flex-col gap-4 '>
+          <div className=' md:w-[80%] w-full min-h-96 flex flex-col gap-4 '>
 
            <label className='text-[#FD356D]'>Enter the Title of the Blog: </label>
               <input type="text" name="text"  className='h-10 italic outline-none p-4' placeholder='Enter the Title of the Blog:' required value={title} 
@@ -122,17 +122,17 @@ function WriteBlogs() {
           setValue("slug",createSlug(e.currentTarget,value))}/>
 
           <label className='text-[#FD356D]'>Enter Featured Image: </label>
-          <input type="file" name="my-image" id="image" accept="image/gif, image/jpeg, image/png"  onChange={(e)=>setImage(e.target.files[0])} required/>
+          <div className='h-10 italic outline-none p-4 bg-white flex items-center'>
+          <input type="file" name="my-image" id="image" accept="image/gif, image/jpeg, image/png" onChange={(e)=>setImage(e.target.files[0])} required/></div>
 
 
           <label className='text-[#FD356D]'>Enter the Content of the Blog: </label>
-            <Editor 
+            <Editor className='h-96 w-96 italic outline-none p-4'
               apiKey={tiny.tinymceAPIKey}
             initialValue=''
             init={
               {branding: false,
-                width:950,
-              height: 500,
+                
               menubar: true,
               plugins: [
                 'advlist autolink lists link image charmap print preview anchor',
@@ -157,7 +157,7 @@ function WriteBlogs() {
               }} 
                />
           <label className='text-[#FD356D]'>Enter the Status(Active/Inactive): </label>
-          <select name="status" className='h-10 italic outline-none p-4' value={status} 
+          <select name="status" className='h-10 italic outline-none p-2' value={status} 
           onChange={(e)=>setStatus(e.target.value)} required>
             <option value="active">Active</option>
             <option value="inactive">Inactive</option>

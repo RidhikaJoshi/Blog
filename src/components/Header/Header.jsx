@@ -45,7 +45,7 @@ function Header() {
 
   return (
     <>
-   <div className='transparent border-b-[0.5px] border-white text-white  w-full h-[5vh] flex flex-row items-center justify-between p-8'>
+   <div className='transparent border-b-[0.5px] border-white text-white  w-full h-[5vh] flex flex-row items-center justify-between p-8 shadow sticky top-0 z-5 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20'>
         {/* This div contains logo */}
       <div className='text-[#FD356D] italic text-xl cursor-pointer'><Link to='/'>BlogSphere</Link></div>
 
@@ -78,7 +78,7 @@ function Header() {
     
    </div>
    {showNav && (
-            <div className='border-[1px] rounded border-white z-2 min-h-52 w-[50%]  float-right flex items-center justify-center md:hidden'>
+            <div className=' min-h-52 w-full  float-right flex items-center justify-center md:hidden shadow sticky top-[10vh] z-5 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20'>
             <ul className='flex flex-col gap-4 items-center justify-center text-white'>
               {navItems.map((item, index) => {
                 if (item.active) {
