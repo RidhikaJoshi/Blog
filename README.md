@@ -40,7 +40,7 @@ Appwrite serves as the backbone, streamlining backend operations and enhancing t
 
 ## 🚀 Deployment
 
-BlogSphere is accessible on  [Website](https://ridhikajoshi-blogs.netlify.app/), providing a convenient platform for users to experience the application.
+BlogSphere is accessible on  [Website](https://blogsphere-swf7.onrender.com/), providing a convenient platform for users to experience the application.
 
 ## 📞 Contact Information
 - GitHub:  [Link](https://github.com/RidhikaJoshi)
