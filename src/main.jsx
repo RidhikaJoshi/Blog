@@ -5,12 +5,15 @@ import './index.css'
 import store from './store/store.js'
 import { Provider } from 'react-redux'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import LoginPage from './pages/LoginPage.jsx'
-import SignUp from './pages/SignUp.jsx'
-import HomePage from './pages/HomePage.jsx'
-import BlogPage from './pages/BlogPage.jsx'
-import WriteBlogs from './pages/WriteBlogs.jsx'
-import ReadBlog from './pages/ReadBlog.jsx'
+import {lazy}  from 'react'
+
+
+const HomePage = lazy(()=>import('./pages/HomePage.jsx'));
+const BlogPage = lazy(()=>import('./pages/BlogPage.jsx'));
+const WriteBlogs = lazy(()=>import('./pages/WriteBlogs.jsx'));
+const ReadBlog = lazy(()=>import('./pages/ReadBlog.jsx'));
+const LoginPage = lazy(()=>import('./pages/LoginPage.jsx'));
+const SignUp = lazy(()=>import('./pages/SignUp.jsx'));
 
 const router=createBrowserRouter([
   {

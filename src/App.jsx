@@ -1,6 +1,6 @@
 import './App.css'
 import config from './config/config.js'
-import React,{ useEffect, useState } from 'react'
+import React,{ useEffect, useState,Suspense } from 'react'
 import { useDispatch } from 'react-redux'
 import authService from './appwrite/auth.js'
 import { login ,logout} from './store/authSlice.js'
@@ -24,21 +24,18 @@ function App() {
     }, []);
 
 
-    if(loading==true)
-    {
-      return <div className='text-3xl font-bold bg-black text-[#FD356D] w-full h-[100vh] flex items-center justify-center'>Loading...</div>
-    }
-    else
-    {
-        return(
-          <div className='font-serif italic bg-black min-h-[100vh] w-full'>
-          <Header/>
-            {/* <h1>Appwrite Auth</h1> */}
-            <Outlet/>
-          <Footer/>
-          </div>
-        )
-
+    if (loading == true) {
+      return <div className='text-3xl font-bold bg-black text-[#FD356D] w-full h-[100vh] flex items-center justify-center'>Loading...</div>;
+    } else {
+      return (
+        <div className='font-serif italic bg-black min-h-[100vh] w-full'>
+          <Header />
+          <Suspense fallback={<div className='text-3xl font-bold bg-black text-[#FD356D] w-full h-[100vh] flex items-center justify-center'>Loading...</div>}>
+            <Outlet />
+          </Suspense>
+          <Footer />
+        </div>
+      );
     }
   
 }
