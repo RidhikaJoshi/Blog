@@ -78,7 +78,7 @@ function Header() {
     
    </div>
    {showNav && (
-            <div className='border-[1px] rounded border-white z-10 min-h-52 min-w-52 float-right flex items-center justify-center'>
+            <div className='border-[1px] rounded border-white z-10 min-h-52 min-w-52 float-right flex items-center justify-center md:hidden'>
             <ul className='flex flex-col gap-4 items-center justify-center text-white'>
               {navItems.map((item, index) => {
                 if (item.active) {
