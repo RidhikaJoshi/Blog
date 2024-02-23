@@ -71,7 +71,7 @@ function Header() {
       {/* This div is for the hamburger menu */}
         <div className='md:hidden flex items-center'>
           
-          <img className='h-10' src={hamburger} alt='Hamburger' onClick={() => setShowNav(!showNav)}/>
+          <img className='h-10' src={hamburger} alt="Hamburger" onClick={() => setShowNav(!showNav)} height='' width=''/>
           
 
         </div>
