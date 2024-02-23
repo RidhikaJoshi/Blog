@@ -26,7 +26,11 @@ function App() {
 
     if(loading==true)
     {
-      return <div className='text-3xl font-bold bg-black text-[#FD356D] w-full h-[100vh] flex items-center justify-center'>Loading...</div>
+      <div class="flex flex-row gap-2">
+            <div class="w-4 h-4 rounded-full bg-customPink animate-bounce"></div>
+            <div class="w-4 h-4 rounded-full bg-customPink animate-bounce [animation-delay:-.1s]"></div>
+            <div class="w-4 h-4 rounded-full bg-customPink animate-bounce [animation-delay:-.2s]"></div>
+        </div>
     }
     else
     {
