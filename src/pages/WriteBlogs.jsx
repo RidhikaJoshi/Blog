@@ -6,6 +6,7 @@ import service from '../appwrite/database.js'
 import authservice from '../appwrite/auth'
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import { set } from 'react-hook-form';
 
 function WriteBlogs() {
 
@@ -18,6 +19,7 @@ function WriteBlogs() {
   const [content,setContent]=useState('');
   const [status,setStatus]=useState('active');
   const [image,setImage]=useState(null);
+  const [author,setAuthor]=useState('anonymous');
  
   useEffect(() => {
     async function fetchPost() {
@@ -55,13 +57,14 @@ function WriteBlogs() {
       title,
       content,
       featuredimage:file_upload.$id,
-      status}
+      status,author}
     const updatedPost=await service.updatePost(post.id,blog);
     if(updatedPost) {
       setTitle('');
       setContent('');
       setStatus('active');
       setImage('');
+      setAuthor('anonymous');
       navigate('/blogs');
       
     }
@@ -81,7 +84,8 @@ function WriteBlogs() {
       content,
       featuredimage:file_upload.$id,
       status,
-      userId: userId.$id 
+      userId: userId.$id ,
+      author
     };
     console.log(blog);
     const createdBlog=await service.createPost(blog);
@@ -90,6 +94,7 @@ function WriteBlogs() {
       setContent('');
       setStatus('active');
       setImage('');
+      setAuthor('anonymous');
       navigate('/blogs')
     }
 
@@ -144,6 +149,13 @@ function WriteBlogs() {
             value={content}
             onEditorChange={(e)=>setContent(e)}/>
 
+
+          <label className='text-[#FD356D]'>Author of the Blog: </label>
+              <input type="text" name="text"  className='h-10 italic outline-none p-4' required value={author} 
+              onChange={(e)=>{
+            setAuthor(e.target.value);
+              }} 
+               />
           <label className='text-[#FD356D]'>Enter the Status(Active/Inactive): </label>
           <select name="status" className='h-10 italic outline-none p-4' value={status} 
           onChange={(e)=>setStatus(e.target.value)} required>

@@ -27,11 +27,13 @@ function BlogPage() {
            <div className='w-full  min-h-96 flex flex-row flex-wrap gap-4  justify-evenly'>
              {allPosts.length > 0 &&
                         allPosts.map((post) => (
+                            console.log(post),
                             <PostCard
                                 key={post.$id}
                                 $id={post.$id}
                                 title={post.title}
                                 featuredImage={(post.featuredimage)}
+                                author={post.author}
                             />
                         ))}
            </div>

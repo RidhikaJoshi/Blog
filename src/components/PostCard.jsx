@@ -6,7 +6,7 @@ import { useState,useEffect } from 'react'
 // here $id is the id of the entire post
 // in order to get preview of the image we use service.getfilepreviw(featuredImage)
 // featuredImage is the image of the post -gives id of the image
-function PostCard({$id,title,featuredImage}) {
+function PostCard({$id,title,featuredImage,author}) {
     const [imageURL, setImageURL] = useState(null);
 
     useEffect(() => {
@@ -27,7 +27,7 @@ function PostCard({$id,title,featuredImage}) {
             {console.log('featuredImage:', service.getfilepreviw(featuredImage))}
                {imageURL && <img src={imageURL} alt={title} className='h-[60%] w-full rounded-xl' />}
                 <h2 className='text-xl text-center font-bold'>{title}</h2>
-                <p>Author</p>
+                <p className='text-sm text-center '>Author: {author}</p>
                 <button className='bg-[#FD356D] px-4 py-2 rounded-full italic'>Read</button>
                 
         </div>

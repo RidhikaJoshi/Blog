@@ -81,7 +81,7 @@ function ReadBlog() {
         <div className=' min-h-[85vh] md:w-[90%] w-full flex flex-row items-center justify-center text-xl font-medium '>
                 <div className='min-h-[85vh] bg-[#0F172A] md:w-[90%] w-full md:p-10 p-5 justify-center items-center flex flex-col gap-10' >
                     <h1 className='text-white font-bold md:text-2xl text-lg'>{post && post.title}</h1>
-                    
+                    <p className='text-white text-lg'>Author of the Blog: {post.author}</p>
                     <img src={imageURL} alt={post && post.title} className='h-72 md:w-[50%] w-[90%]' />
                    <p className='text-white text-lg'>{post && parse(post.content)}</p>
 
