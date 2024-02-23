@@ -11,13 +11,14 @@ import 'react-toastify/dist/ReactToastify.css';
 function LoginPage() {
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
-
+    const [Login,setLogin]=useState('Login');
     const dispatch=useDispatch();
     const navigate=useNavigate();
 
 
     const loginHandler=async (e)=>{
         e.preventDefault();
+        setLogin('Logging in...');
         if(email===''||password===''||email===undefined||password===undefined)
         {
           toast.error('Please fill all the fields', {
@@ -31,7 +32,11 @@ function LoginPage() {
                 theme: "dark",
                 transition: Bounce,
               });
+          setEmail('');
+          setPassword('');
+          setLogin('Login');
           return;
+
         }
         if(password.length<8)
         {
@@ -47,24 +52,17 @@ function LoginPage() {
                 transition: Bounce,
               });
           setPassword('');
+           setLogin('Login');
           return;
         }
         authService.login(email,password).then((user)=>{
           if(user!=undefined)
           {
             dispatch(login({userData:user}));
+             
             navigate('/');
-            toast.error('Loggin Successfull!', {
-                position: "top-right",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-                transition: Bounce,
-                });
+            toast.success('Loggin Successfull!');
+           
             
           }
           else
@@ -82,6 +80,7 @@ function LoginPage() {
               });
             setEmail('');
             setPassword('');
+             setLogin('Login');
             //console.log('Invalid email or password');
           }
         }) 
@@ -95,7 +94,7 @@ function LoginPage() {
                   <input type="email" name="email" value={email} className='h-10 italic outline-none p-4' placeholder='Enter Email' onChange={(e)=>setEmail(e.target.value)} required/>
                 <label className='text-[#FD356D]'>Password: </label>
                   <input type="password" name="password" value={password} className='h-10 italic outline-none p-4' placeholder='Enter Password' onChange={(e)=>setPassword(e.target.value)} required />
-                <button className='text-white italic bg-[#FD356D] px-4 py-2 rounded-full ' type='submit' onClick={loginHandler}>Login</button>
+                <button className='text-white italic bg-[#FD356D] px-4 py-2 rounded-full ' type='submit' onClick={loginHandler}>{Login}</button>
                 <p className=' text-white'>Don&apos;t have an acoount? <Link to='/signup' className='text-[#FD356D]'>SignUp</Link></p>
                   <ToastContainer 
                 style={{

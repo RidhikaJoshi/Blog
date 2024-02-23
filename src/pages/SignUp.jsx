@@ -15,31 +15,40 @@ function SignUp() {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [SignUp, setSignUp] = useState('Create Account');
 
 
   const SignUpHandler = async (e) => {
     e.preventDefault();
+    setSignUp('Creating Account...');
     if(name===''||email===''||password===''||name===undefined||email===undefined||password===undefined)
     {
       toast.warn('Please fill all the fields')
+      setEmail('');
+      setPassword('');
+      setSignUp('Create Account');
       return;
     }
     if(password.length<8)
     {
       toast.warn('Password should be atleast 8 characters long')
       setPassword('');
+      setSignUp('Create Account');
       return;
     }
     if(!email.includes('@')||!email.includes('.'))
     {
       toast.warn('Invalid email');
       setEmail('');
+      setPassword('');
+      setSignUp('Create Account');
       return;
     }
     const user=await authService.createAccount({ name, email, password })
       console.log(user);
       if(user!==undefined)
       {
+        toast.success('Account Created Successfully');
         dispatch(login({ userData: user }));
         navigate('/');
       }
@@ -48,6 +57,7 @@ function SignUp() {
         toast.error('Error Occured while creating account');
         setEmail('');
         setPassword('');
+        setSignUp('Create Account');
       }
   
   }
@@ -62,7 +72,7 @@ function SignUp() {
           <input type="email" name="email" value={email} className='h-10 italic outline-none p-4' placeholder='Enter Email' onChange={(e) => setEmail(e.target.value)} required />
           <label className='text-[#FD356D]'>Password: </label>
           <input type="password" name="password" value={password} className='h-10 italic outline-none p-4' placeholder='Enter Password' onChange={(e) => setPassword(e.target.value)} required />
-          <button className='text-white italic bg-[#FD356D] px-4 py-2 rounded-full ' type='submit' onClick={SignUpHandler}>Create Account</button>
+          <button className='text-white italic bg-[#FD356D] px-4 py-2 rounded-full ' type='submit' onClick={SignUpHandler}>{SignUp}</button>
           <p className='text-white'>Already have an acoount? <Link to='/login' className='text-[#FD356D]'>Login</Link></p>
           <ToastContainer 
                 style={{
