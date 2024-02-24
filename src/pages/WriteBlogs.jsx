@@ -12,14 +12,31 @@ function WriteBlogs() {
 
    const navigate = useNavigate();
   const post=useParams();
-  console.log(post);
+  //console.log(post);
  
   const [slug,setSlug]=useState('');
   const [title,setTitle]=useState('');
   const [content,setContent]=useState('');
   const [status,setStatus]=useState('active');
   const [image,setImage]=useState(null);
-  const [author,setAuthor]=useState('anonymous');
+  const [author,setAuthor]=useState('');
+
+  useEffect(() => {
+    async function getuser() {
+      try
+      {
+           const res = await authservice.getCurrentUser();
+          if (res) {
+              //console.log('user:', res.name);
+              setAuthor(res.name);
+          }
+      } catch (error) {
+          console.log('Error occured while fetching user', error)
+      }
+  }
+  getuser();
+}, []);
+
  
   useEffect(() => {
     async function fetchPost() {
@@ -49,10 +66,10 @@ function WriteBlogs() {
   const updatePost = async (e) => {
     e.preventDefault();
     const userId=await authservice.getCurrentUser();
-    console.log(userId.$id);
-    console.log(image);
+    //console.log(userId.$id);
+    //console.log(image);
     const file_upload=await service.uploadFile(image);
-    console.log(file_upload.$id);
+    //console.log(file_upload.$id);
     const blog = {
       title,
       content,
@@ -64,7 +81,6 @@ function WriteBlogs() {
       setContent('');
       setStatus('active');
       setImage('');
-      setAuthor('anonymous');
       navigate('/blogs');
       
     }
@@ -94,7 +110,6 @@ function WriteBlogs() {
       setContent('');
       setStatus('active');
       setImage('');
-      setAuthor('anonymous');
       navigate('/blogs')
     }
 
@@ -151,11 +166,8 @@ function WriteBlogs() {
 
 
           <label className='text-[#FD356D]'>Author of the Blog: </label>
-              <input type="text" name="text"  className='h-10 italic outline-none p-4' required value={author} 
-              onChange={(e)=>{
-            setAuthor(e.target.value);
-              }} 
-               />
+              <input type="text" name="text"  className='h-10 italic outline-none p-4' disabled value={author} />
+
           <label className='text-[#FD356D]'>Enter the Status(Active/Inactive): </label>
           <select name="status" className='h-10 italic outline-none p-2' value={status} 
           onChange={(e)=>setStatus(e.target.value)} required>

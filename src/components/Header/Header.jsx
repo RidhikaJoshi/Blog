@@ -32,6 +32,11 @@ function Header() {
         active:authStatus
       },
       {
+        name:"My Profile",
+        slug:'/profile',
+        active:authStatus
+      },
+      {
         name:"Login",
         slug:'/login',
         active:!authStatus,

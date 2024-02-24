@@ -14,6 +14,7 @@ const WriteBlogs = lazy(()=>import('./pages/WriteBlogs.jsx'));
 const ReadBlog = lazy(()=>import('./pages/ReadBlog.jsx'));
 const LoginPage = lazy(()=>import('./pages/LoginPage.jsx'));
 const SignUp = lazy(()=>import('./pages/SignUp.jsx'));
+const MyProfile = lazy(()=>import('./pages/MyProfile.jsx'));
 
 const router=createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router=createBrowserRouter([
       {
         path:'write/:id',
         element:<WriteBlogs/>
+      },
+      {
+        path:'profile',
+        element:<MyProfile/>
       }
     ]
   }
