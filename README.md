@@ -5,6 +5,7 @@ BlogSphere is a web application crafted for users to articulate their thoughts a
 ## 🚀 Features
 
 - **User Authentication:** Secure user authentication and authorization features are integrated, ensuring login functionality and personalized user experiences.
+- **Code Splitting:** Implemented code splitting to enhance performance by dynamically loading JavaScript only when necessary, optimizing initial page load time and improving user experience.
 - **Rich Text Editor:** Empowered by TinyMCE, the editor presents a range of formatting options, including font styles, colors, headings, indentations, images, tables, special characters, and numbering.
 - **Post Creation and Editing:** Users can create new posts and edit existing ones, with options to set the title, content, featured image, and status (active/inactive).
 - **Image Upload:** The website supports image upload functionality, allowing users to include featured images in their blog posts.
