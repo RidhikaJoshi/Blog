@@ -44,7 +44,7 @@ export class AuthService {
 			return await this.account.createOAuth2Session(
 				"google",
 				"http://localhost:5173", // Success URL
-				"https://ridhikajoshi-blogs.netlify.app/login" // Failure URL
+				"http://localhost:5173/login" // Failure URL
 			);
 		} catch (error) {
 			console.log("Appwrite loginWithGoogle error", error);
