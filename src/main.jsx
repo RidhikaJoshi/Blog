@@ -4,7 +4,7 @@ import App from './App.jsx'
 import './index.css'
 import store from './store/store.js'
 import { Provider } from 'react-redux'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { RouterProvider,createHashRouter } from 'react-router-dom'
 import {lazy}  from 'react'
 
 
@@ -16,7 +16,7 @@ const LoginPage = lazy(()=>import('./pages/LoginPage.jsx'));
 const SignUp = lazy(()=>import('./pages/SignUp.jsx'));
 const MyProfile = lazy(()=>import('./pages/MyProfile.jsx'));
 
-const router=createBrowserRouter([
+const router=createHashRouter([
   {
     path:'/',
     element:<App/>,
