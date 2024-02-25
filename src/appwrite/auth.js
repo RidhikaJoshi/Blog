@@ -39,6 +39,18 @@ export class AuthService {
 			console.log("Appwrite login error", error);
 		}
 	}
+	async loginWithGoogle() {
+		try {
+			return await this.account.createOAuth2Session(
+				"google",
+				"https://blogsphere-swf7.onrender.com", // Success URL
+				"https://blogsphere-swf7.onrender.com/login" // Failure URL
+			);
+		} catch (error) {
+			console.log("Appwrite loginWithGoogle error", error);
+		}
+	}
+
 	// this method is used to get current user info
 	async getCurrentUser() {
 		try {

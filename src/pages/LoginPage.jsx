@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { login } from '../store/authSlice.js'
 import { Link } from 'react-router-dom'
 import { ToastContainer, toast,Bounce } from 'react-toastify';
+import { FcGoogle } from "react-icons/fc";
 import 'react-toastify/dist/ReactToastify.css';
 
 function LoginPage() {
@@ -14,6 +15,16 @@ function LoginPage() {
     const [Login,setLogin]=useState('Login');
     const dispatch=useDispatch();
     const navigate=useNavigate();
+
+    const handleGoogleLogin = async () => {
+        authService.loginWithGoogle().then((user) => {
+          if (user) {
+            dispatch(login({ userData: user }));
+            navigate('/');
+            toast.success('Loggin Successfull!');
+          }
+        });
+      };
 
 
     const loginHandler=async (e)=>{
@@ -65,6 +76,10 @@ function LoginPage() {
                 <label className='text-[#FD356D]'>Password: </label>
                   <input type="password" name="password" value={password} className='h-10 italic outline-none p-4' placeholder='Enter Password' onChange={(e)=>setPassword(e.target.value)} required />
                 <button className='text-white italic bg-[#FD356D] px-4 py-2 rounded-full ' type='submit' onClick={loginHandler}>{Login}</button>
+                <button className="flex justify-center items-center gap-2 border-2 border-slate-600 px-5 py-2 rounded-lg"  onClick={ handleGoogleLogin  }>
+                    <FcGoogle size={30} />
+                    <span className='text-white italic'>Login with Google</span>
+                </button>
                 <p className=' text-white'>Don&apos;t have an acoount? <Link to='/signup' className='text-[#FD356D]'>SignUp</Link></p>
                   <ToastContainer
         position="top-right"
