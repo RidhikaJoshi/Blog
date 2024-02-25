@@ -8,7 +8,6 @@ import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { ToastContainer, toast,Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { set } from 'react-hook-form';
 
 
 function WriteBlogs() {
@@ -109,7 +108,7 @@ function WriteBlogs() {
     e.preventDefault();
     setValue('Publishing...');
     console.log(title,content);
-     if (title === "" || content === "") {
+     if (!title || !content) {
       toast.error("Please Fill All The Fields");
       setValue('Publish');
       return;
