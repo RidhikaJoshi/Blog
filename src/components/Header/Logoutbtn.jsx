@@ -12,30 +12,26 @@ function Logoutbtn() {
     const navigate=useNavigate();
     const logoutHandler=()=>{
         authService.logout().then(()=>{
+          toast.success('Logged out successfully');
           dispatch(logout());
           navigate('/');
-          toast.success('Logged out successfully');
-            
         })
     }
   return (
     <>
     <button className='px-4 py-2 rounded-full cursor-pointer bg-[#FD356D] text-white' onClick={logoutHandler}>Logout</button>
-    <ToastContainer 
-                style={{
-                  position: "top-right",
-                  autoClose: 2000,
-                  hideProgressBar: false,
-                  newestOnTop: false,
-                  closeOnClick: true,
-                  rtl: false,
-                  pauseOnFocusLoss: true,
-                  draggable: true,
-                  pauseOnHover: true,
-                  theme: "dark",
-                  transition: Bounce,
-                }}
-              />
+    <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover={false}
+        theme="dark"
+      />
               </>
   )
 }

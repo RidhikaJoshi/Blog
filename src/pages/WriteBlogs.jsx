@@ -6,7 +6,10 @@ import service from '../appwrite/database.js'
 import authservice from '../appwrite/auth'
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import { ToastContainer, toast,Bounce } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { set } from 'react-hook-form';
+
 
 function WriteBlogs() {
 
@@ -20,6 +23,7 @@ function WriteBlogs() {
   const [status,setStatus]=useState('active');
   const [image,setImage]=useState(null);
   const [author,setAuthor]=useState('');
+  const [value,setValue]=useState('Publish');  
 
   useEffect(() => {
     async function getuser() {
@@ -65,11 +69,23 @@ function WriteBlogs() {
 
   const updatePost = async (e) => {
     e.preventDefault();
+    setValue('Updating...');
     const userId=await authservice.getCurrentUser();
     //console.log(userId.$id);
     //console.log(image);
     const file_upload=await service.uploadFile(image);
     //console.log(file_upload.$id);
+    if(!file_upload.$id) return 
+    {
+      toast.error('Image not uploaded');
+       setValue('Publish');
+    }
+    if(!title || !content) return
+    {
+      toast.error('Please fill all the fields' );
+       setValue('Publish');
+    }
+    
     const blog = {
       title,
       content,
@@ -81,6 +97,8 @@ function WriteBlogs() {
       setContent('');
       setStatus('active');
       setImage('');
+      setValue('Publish');
+      toast.success('Blog Updated Successfully');
       navigate('/blogs');
       
     }
@@ -89,11 +107,29 @@ function WriteBlogs() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setValue('Publishing...');
+    console.log(title,content);
+     if (title === "" || content === "") {
+      toast.error("Please Fill All The Fields");
+      setValue('Publish');
+      return;
+    }
+
     const userId=await authservice.getCurrentUser();
-    console.log(userId.$id);
-    console.log(image);
+    //console.log(userId.$id);
+    //console.log(image);
     const file_upload=await service.uploadFile(image);
-    console.log(file_upload.$id);
+    //console.log(file_upload.$id);
+    if(!file_upload.$id) 
+    {
+      toast.error('Image not uploaded');
+        setValue('Publish');
+        return ;
+    }
+   
+    
+  
+
     const blog = {
       title,
       slug,
@@ -110,7 +146,14 @@ function WriteBlogs() {
       setContent('');
       setStatus('active');
       setImage('');
+      setValue('Publish');
+      toast.success('Blog Published Successfully');
       navigate('/blogs')
+    }
+    else{
+      toast.error('Error occured while publishing the blog');
+      setValue('Publish');
+
     }
 
   }
@@ -175,8 +218,19 @@ function WriteBlogs() {
             <option value="inactive">Inactive</option>
           </select>
              
-          <button className='text-white italic bg-[#FD356D] px-4 py-2 rounded-full ' type='submit' onClick={post && post.id? updatePost: handleSubmit}>Publish</button>
-       
+          <button className='text-white italic bg-[#FD356D] px-4 py-2 rounded-full ' type='submit' onClick={post && post.id? updatePost: handleSubmit}>{value}</button>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover={false}
+        theme="dark"
+      />
 
        </div>
 

@@ -21,17 +21,7 @@ function LoginPage() {
         setLogin('Logging in...');
         if(email===''||password===''||email===undefined||password===undefined)
         {
-          toast.error('Please fill all the fields', {
-                position: "top-right",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-                transition: Bounce,
-              });
+          toast.error('Please fill all the fields');
           setEmail('');
           setPassword('');
           setLogin('Login');
@@ -40,17 +30,7 @@ function LoginPage() {
         }
         if(password.length<8)
         {
-          toast.error('Password should be atleast 8 characters long', {
-                position: "top-right",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-                transition: Bounce,
-              });
+          toast.error('Password should be atleast 8 characters long');
           setPassword('');
            setLogin('Login');
           return;
@@ -67,17 +47,7 @@ function LoginPage() {
           }
           else
           {
-            toast.error('Invalid Email or Password', {
-                position: "top-right",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-                transition: Bounce,
-              });
+            toast.error('Invalid Email or Password');
             setEmail('');
             setPassword('');
              setLogin('Login');
@@ -96,21 +66,18 @@ function LoginPage() {
                   <input type="password" name="password" value={password} className='h-10 italic outline-none p-4' placeholder='Enter Password' onChange={(e)=>setPassword(e.target.value)} required />
                 <button className='text-white italic bg-[#FD356D] px-4 py-2 rounded-full ' type='submit' onClick={loginHandler}>{Login}</button>
                 <p className=' text-white'>Don&apos;t have an acoount? <Link to='/signup' className='text-[#FD356D]'>SignUp</Link></p>
-                  <ToastContainer 
-                style={{
-                  position: "top-right",
-                  autoClose: 1000,
-                  hideProgressBar: false,
-                  newestOnTop: false,
-                  closeOnClick: true,
-                  rtl: false,
-                  pauseOnFocusLoss: true,
-                  draggable: true,
-                  pauseOnHover: true,
-                  theme: "dark",
-                  transition: Bounce,
-                }}
-              />
+                  <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover={false}
+        theme="dark"
+      />
             </div>
          
 
