@@ -1,16 +1,23 @@
 # ✨ BlogSphere- A Blogging Website
 
 BlogSphere is a web application crafted for users to articulate their thoughts and ideas through published articles. It seamlessly incorporates user authentication, a robust rich text editor, and Appwrite as the backend, ensuring a smooth and secure experience for writers and readers.
+![image](https://github.com/RidhikaJoshi/Blog/assets/92508014/ad66d2f5-5ab4-4881-9eb2-b03eb706d2af)
+![image](https://github.com/RidhikaJoshi/Blog/assets/92508014/c3aa7c97-7fcb-4e59-88b6-532631fecb75)
+
+
 
 ## 🚀 Features
 
-- **User Authentication:** Secure user authentication and authorization features are integrated, ensuring login functionality and personalized user experiences.
+- **User Authentication:** Integrate Google OAuth-based user authentication to facilitate secure login functionality via Google accounts, streamlining the login process and offering users a familiar and trusted authentication method.
 - **Code Splitting:** Implemented code splitting to enhance performance by dynamically loading JavaScript only when necessary, optimizing initial page load time and improving user experience.
 - **Rich Text Editor:** Empowered by TinyMCE, the editor presents a range of formatting options, including font styles, colors, headings, indentations, images, tables, special characters, and numbering.
 - **Post Creation and Editing:** Users can create new posts and edit existing ones, with options to set the title, content, featured image, and status (active/inactive).
 - **Image Upload:** The website supports image upload functionality, allowing users to include featured images in their blog posts.
 - **Responsive Design:** The website is designed with a responsive layout using React components and Tailwind CSS, ensuring compatibility with various devices and screen sizes.
 - **Seamless Navigation:** React Router is leveraged for seamless navigation between different pages of the website.
+
+  ![image](https://github.com/RidhikaJoshi/Blog/assets/92508014/b6a8dce9-a779-4ce5-8743-204b2154aec1)
+
 
 ## 🛠️ Technologies Used
 
