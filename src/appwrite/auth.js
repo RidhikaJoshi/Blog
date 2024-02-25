@@ -43,7 +43,7 @@ export class AuthService {
 		try {
 			return await this.account.createOAuth2Session(
 				"google",
-				"https://ridhikajoshi-blogs.netlify.app", // Success URL
+				"http://localhost:5173", // Success URL
 				"https://ridhikajoshi-blogs.netlify.app/login" // Failure URL
 			);
 		} catch (error) {
