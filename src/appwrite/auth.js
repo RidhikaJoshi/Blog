@@ -43,8 +43,8 @@ export class AuthService {
 		try {
 			return await this.account.createOAuth2Session(
 				"google",
-				"http://localhost:5173", // Success URL
-				"http://localhost:5173/login" // Failure URL
+				"https://blogsphere-swf7.onrender.com", // Success URL
+				"https://blogsphere-swf7.onrender.com/login" // Failure URL
 			);
 		} catch (error) {
 			console.log("Appwrite loginWithGoogle error", error);
