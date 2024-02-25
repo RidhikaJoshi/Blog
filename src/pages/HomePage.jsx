@@ -36,32 +36,32 @@ function HomePage() {
          <div className='flex flex-col justify-center items-center'>
                 <svg className="rotate-svg" width="118" height="118" viewBox="-14.75 -14.75 147.5 147.5" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <circle r="49" cx="59" cy="59" fill="transparent" stroke="#e0e0e0" strokeWidth="12" strokeDasharray="307.72px" strokeDashoffset="0"></circle>
-                <circle r="49" cx="59" cy="59" stroke="#FD356D" strokeWidth="9" strokeLinecap="round" strokeDashoffset="65px" fill="transparent" strokeDasharray="307.72px"></circle>
-                  <text x="42px" y="70px" fill="#FD356D" fontSize="30px" fontWeight="bold" transform="rotate(90deg) translate(0px, -114px)">79</text>
+                <circle r="49" cx="59" cy="59" stroke="#FD356D" strokeWidth="9" strokeLinecap="round" strokeDashoffset="65px" fill="transparent" strokeDasharray="360px"></circle>
+                  <text x="42px" y="70px" fill="#FD356D" fontSize="30px" fontWeight="bold" transform="rotate(90deg) translate(0px, -114px)">99</text>
                  </svg>
                  <p className='text-white text-sm'>Performance</p>
           </div>
           <div className='flex flex-col justify-center items-center'>
                 <svg className="rotate-svg" width="118" height="118" viewBox="-14.75 -14.75 147.5 147.5" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <circle r="49" cx="59" cy="59" fill="transparent" stroke="#e0e0e0" strokeWidth="12" strokeDasharray="307.72px" strokeDashoffset="0"></circle>
-                <circle r="49" cx="59" cy="59" stroke="#FD356D" strokeWidth="9" strokeLinecap="round" strokeDashoffset="65px" fill="transparent" strokeDasharray="307.72px"></circle>
-                  <text x="42px" y="70px" fill="#FD356D" fontSize="30px" fontWeight="bold" transform="rotate(90deg) translate(0px, -114px)">79</text>
+                <circle r="49" cx="59" cy="59" stroke="#FD356D" strokeWidth="9" strokeLinecap="round" strokeDashoffset="65px" fill="transparent" strokeDasharray="340.72px"></circle>
+                  <text x="42px" y="70px" fill="#FD356D" fontSize="30px" fontWeight="bold" transform="rotate(90deg) translate(0px, -114px)">91</text>
                  </svg>
                  <p className='text-white text-sm'>Accessibility</p>
           </div>
            <div className='flex flex-col justify-center items-center'>
                 <svg className="rotate-svg" width="118" height="118" viewBox="-14.75 -14.75 147.5 147.5" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <circle r="49" cx="59" cy="59" fill="transparent" stroke="#e0e0e0" strokeWidth="12" strokeDasharray="307.72px" strokeDashoffset="0"></circle>
-                <circle r="49" cx="59" cy="59" stroke="#FD356D" strokeWidth="9" strokeLinecap="round" strokeDashoffset="65px" fill="transparent" strokeDasharray="307.72px"></circle>
-                  <text x="42px" y="70px" fill="#FD356D" fontSize="30px" fontWeight="bold" transform="rotate(90deg) translate(0px, -114px)">79</text>
+                <circle r="49" cx="59" cy="59" stroke="#FD356D" strokeWidth="9" strokeLinecap="round" strokeDashoffset="65px" fill="transparent" strokeDasharray="350.72px"></circle>
+                  <text x="42px" y="70px" fill="#FD356D" fontSize="30px" fontWeight="bold" transform="rotate(90deg) translate(0px, -114px)">96</text>
                  </svg>
                  <p className='text-white text-sm'>Best Practice</p>
           </div>
            <div className='flex flex-col justify-center items-center'>
                 <svg className="rotate-svg" width="118" height="118" viewBox="-14.75 -14.75 147.5 147.5" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <circle r="49" cx="59" cy="59" fill="transparent" stroke="#e0e0e0" strokeWidth="12" strokeDasharray="307.72px" strokeDashoffset="0"></circle>
-                <circle r="49" cx="59" cy="59" stroke="#FD356D" strokeWidth="9" strokeLinecap="round" strokeDashoffset="65px" fill="transparent" strokeDasharray="307.72px"></circle>
-                  <text x="42px" y="70px" fill="#FD356D" fontSize="30px" fontWeight="bold" transform="rotate(90deg) translate(0px, -114px)">79</text>
+                <circle r="49" cx="59" cy="59" stroke="#FD356D" strokeWidth="9" strokeLinecap="round" strokeDashoffset="65px" fill="transparent" strokeDasharray="370"></circle>
+                  <text x="42px" y="70px" fill="#FD356D" fontSize="28px" fontWeight="bold" transform="rotate(90deg) translate(0px, -114px)">100</text>
                  </svg>
                  <p className='text-white text-sm'>SEO</p>
           </div>
