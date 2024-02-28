@@ -33,7 +33,7 @@ function SignUp() {
     setSignUp('Creating Account...');
     if(name===''||email===''||password===''||name===undefined||email===undefined||password===undefined)
     {
-      toast.warn('Please fill all the fields')
+      toast.error('Please fill all the fields')
       setEmail('');
       setPassword('');
       setSignUp('Create Account');
@@ -41,14 +41,14 @@ function SignUp() {
     }
     if(password.length<8)
     {
-      toast.warn('Password should be atleast 8 characters long')
+      toast.error('Password should be atleast 8 characters long')
       setPassword('');
       setSignUp('Create Account');
       return;
     }
     if(!email.includes('@')||!email.includes('.'))
     {
-      toast.warn('Invalid email');
+      toast.error('Invalid email');
       setEmail('');
       setPassword('');
       setSignUp('Create Account');
@@ -89,21 +89,18 @@ function SignUp() {
                     <span className='text-white italic'>SignUp with Google</span>
                 </button>
           <p className='text-white'>Already have an acoount? <Link to='/login' className='text-[#FD356D]'>Login</Link></p>
-          <ToastContainer 
-                style={{
-                  position: "top-right",
-                  autoClose: 1000,
-                  hideProgressBar: false,
-                  newestOnTop: false,
-                  closeOnClick: true,
-                  rtl: false,
-                  pauseOnFocusLoss: true,
-                  draggable: true,
-                  pauseOnHover: true,
-                  theme: "dark",
-                  transition: Bounce,
-                }}
-              />
+          <ToastContainer
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss={false}
+            draggable
+            pauseOnHover={false}
+            theme="dark"
+          />
         </div>
 
       </div>
