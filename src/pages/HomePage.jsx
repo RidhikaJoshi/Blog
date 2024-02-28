@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { Slide } from "react-awesome-reveal";
 
 function HomePage() {
 
@@ -10,11 +11,11 @@ function HomePage() {
     <div className='w-full min-h-[85vh] flex flex-col items-center justify-center'>
       {/* // Introduction div */}
           <div className=' min-h-[90vh]  w-[90%] flex flex-col items-center justify-center text-2xl font-medium gap-10 p-10'>
-              <p className='italic text-center md:text-4xl text-3xl font-bold text-white'>
-  "Welcome to <span className='text-[#FD356D]'>BlogSphere</span> - Where stories come alive! </p>
-  <p className='italic text-center text-white md:text-2xl text-xl'>Explore our collection of blogs, share your own tales. Let's make writing fun and easy for everyone!"</p>
+              <Slide direction="up"><p className='italic text-center md:text-4xl text-3xl font-bold text-white'>
+  "Welcome to <span className='text-[#FD356D]'>BlogSphere</span> - Where stories come alive! </p></Slide>
+  <Slide direction="up"><p className='italic text-center text-white md:text-2xl text-xl'>Explore our collection of blogs, share your own tales. Let's make writing fun and easy for everyone!"</p></Slide>
 
-          <button className='italic text-white bg-[#FD356D] px-4 py-2 rounded-full'><Link to='./blogs'>Explore Blogs!</Link></button>
+          <Slide direction="up"><button className='italic text-white bg-[#FD356D] px-4 py-2 rounded-full'><Link to='./blogs'>Explore Blogs!</Link></button></Slide>
 
           </div>
 
@@ -22,11 +23,11 @@ function HomePage() {
 
       {/* // Performance div */}
         <div className='min-h-[65vh]   w-[90%] flex flex-col items-center justify-center text-xl font-medium gap-10 text-white'>
-            <p className='italic font-bold md:text-4xl text-2xl text-center '><span className='text-[#FD356D]'>Blogging platform</span> optimized for software developers and technical writers.</p>
+            <Slide direction="up"><p className='italic font-bold md:text-4xl text-2xl text-center '><span className='text-[#FD356D]'>Blogging platform</span> optimized for software developers and technical writers.</p></Slide>
 
         <div className=' text-white min-h-[40vh] w-full flex md:flex-row flex-col gap-4 justify-between'>
         {/* // Div contains text */}
-        <div className=' text-center shadow-sm shadow-white rounded-xl md:w-[48%] w-full flex flex-col justify-center items-center p-4 gap-3'>
+      <div className=' text-center shadow-sm shadow-white rounded-xl md:w-[48%] w-full flex flex-col justify-center items-center p-4 gap-3'>
               <p className=' text-xl font-[540]'>Super-fast and SEO-optimized blogs built for developers and tech enthusiasts.</p>
               <p className='text-sm'>BlogSphere blogs are fast, up-to-date with SEO techniques, and score above 90 on all Lighthouse parameters. They're simple, elegant, and user-friendly.</p>
         </div>
