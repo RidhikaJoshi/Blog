@@ -110,6 +110,7 @@ function ReadBlog() {
                     <p className='text-gray-300 flex flex-row items-center gap-2 ' >
                         <FaHeart
                             onClick={() => {
+                                if(!user) navigate('/login');
                                 if (post && likes && post.UserLiked.includes(user)) {
                                     setlikes(false);
                                     setPost(prevPost => ({
