@@ -34,7 +34,7 @@ function BlogPage() {
                                 title={post.title}
                                 featuredImage={(post.featuredimage)}
                                 author={post.author}
-                                Likes={post.Likes}
+                                Likes={post.UserLiked.length}
                             />
                         ))}
            </div>

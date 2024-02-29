@@ -66,27 +66,21 @@ function ReadBlog() {
     }, [post && post.featuredimage]);
 
     useEffect(() => {
-        const update = async () => {
+        const update=async()=>{
             try {
-                const response = await service.updatePost(slug.id, {
-                    title: post.title,
-                    content: post.content,
-                    featuredImage: post.featuredImage,
-                    status: post.status,
-                    userId: post.userId,
-                    author: post.author,
-                    Likes: post.Likes,
-                    UserLiked: post.UserLiked
-                });
-            }
-            catch (error) {
+                post.Likes=post.UserLiked.length;
+                const response = await service.updatePost(slug.id, post);
+                console.log('response:', response);
+            } catch (error) {
                 console.log('Error occured while updating post', error);
             }
         }
-        update();
+        if(post){
+            update();
+        }
 
         
-    }, [post && post.Likes]); 
+    }, [post && post.UserLiked]); 
 
     const handleDelete = async () => {
         try {
@@ -111,26 +105,26 @@ function ReadBlog() {
                         <FaHeart
                             onClick={() => {
                                 if(!user) navigate('/login');
-                                if (post && likes && post.UserLiked.includes(user)) {
+                                if (post  && post.UserLiked.includes(user)) {
                                     setlikes(false);
                                     setPost(prevPost => ({
                                         ...prevPost,
-                                        Likes: prevPost.Likes - 1,
-                                        UserLiked: prevPost.UserLiked.filter(item => item !== user)
+                                        UserLiked: prevPost.UserLiked.filter(item => item !== user),
+                                        Likes:post.UserLiked.length
                                     }));
                                 } 
                             else {
                                     setlikes(true);
                                     setPost(prevPost => ({
                                         ...prevPost,
-                                        Likes: prevPost.Likes + 1,
-                                        UserLiked: [...prevPost.UserLiked, user]
+                                        UserLiked: [...prevPost.UserLiked, user],
+                                        Likes:post.UserLiked.length
                                     }));
                                 }
                             }}
                             style={{ color:  post && post.UserLiked.includes(user) ? '#FD356D' : 'white' }}
                         />
-                        {post &&  post.Likes}
+                        {post &&  post.UserLiked.length}
                     </p>
                     <img src={imageURL} alt={post && post.title} className='h-72 md:w-[50%] w-[90%]' />
                     <p className='text-white text-lg'>{post && parse(post.content)}</p>
