@@ -23,6 +23,8 @@ export class DatabaseService {
 		status,
 		userId,
 		author,
+		Likes,
+		UserLiked,
 	}) {
 		try {
 			return await this.databases.createDocument(
@@ -36,6 +38,8 @@ export class DatabaseService {
 					status,
 					userId,
 					author,
+					Likes,
+					UserLiked,
 				}
 			);
 		} catch (error) {
@@ -43,7 +47,10 @@ export class DatabaseService {
 		}
 	}
 	// this method handles to update any existing post
-	async updatePost(slug, { title, content, featuredImage, status, author }) {
+	async updatePost(
+		slug,
+		{ title, content, featuredImage, status, author, Likes, UserLiked }
+	) {
 		try {
 			return await this.databases.updateDocument(
 				config.appwriteDatabaseId,
@@ -55,6 +62,8 @@ export class DatabaseService {
 					featuredImage,
 					status,
 					author,
+					Likes,
+					UserLiked,
 				}
 			);
 		} catch (error) {

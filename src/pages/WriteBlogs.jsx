@@ -6,7 +6,7 @@ import service from '../appwrite/database.js'
 import authservice from '../appwrite/auth'
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { ToastContainer, toast,Bounce } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -22,7 +22,8 @@ function WriteBlogs() {
   const [status,setStatus]=useState('active');
   const [image,setImage]=useState(null);
   const [author,setAuthor]=useState('');
-  const [value,setValue]=useState('Publish');  
+  const [value,setValue]=useState('Publish'); 
+  const [Likes,setLikes]=useState(0); 
 
   useEffect(() => {
     async function getuser() {
@@ -89,7 +90,7 @@ function WriteBlogs() {
       title,
       content,
       featuredimage:file_upload.$id,
-      status,author}
+      status,author,Likes,UserLiked:[]}
     const updatedPost=await service.updatePost(post.id,blog);
     if(updatedPost) {
       setTitle('');
@@ -125,20 +126,19 @@ function WriteBlogs() {
         setValue('Publish');
         return ;
     }
-   
-    
-  
+
 
     const blog = {
       title,
       slug,
       content,
-      featuredimage:file_upload.$id,
+      featuredimage: file_upload.$id,
       status,
-      userId: userId.$id ,
-      author
+      userId: userId.$id,
+      author,
+      Likes,
+      UserLiked: []
     };
-    console.log(blog);
     const createdBlog=await service.createPost(blog);
     if(createdBlog) {
       setTitle('');
