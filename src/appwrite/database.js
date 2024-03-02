@@ -25,6 +25,7 @@ export class DatabaseService {
 		author,
 		Likes,
 		UserLiked,
+		comments,
 	}) {
 		try {
 			return await this.databases.createDocument(
@@ -40,6 +41,7 @@ export class DatabaseService {
 					author,
 					Likes,
 					UserLiked,
+					comments,
 				}
 			);
 		} catch (error) {
@@ -49,7 +51,16 @@ export class DatabaseService {
 	// this method handles to update any existing post
 	async updatePost(
 		slug,
-		{ title, content, featuredImage, status, author, Likes, UserLiked }
+		{
+			title,
+			content,
+			featuredImage,
+			status,
+			author,
+			Likes,
+			UserLiked,
+			comments,
+		}
 	) {
 		try {
 			return await this.databases.updateDocument(
@@ -64,6 +75,7 @@ export class DatabaseService {
 					author,
 					Likes,
 					UserLiked,
+					comments,
 				}
 			);
 		} catch (error) {

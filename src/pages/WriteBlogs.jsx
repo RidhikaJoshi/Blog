@@ -90,7 +90,7 @@ function WriteBlogs() {
       title,
       content,
       featuredimage:file_upload.$id,
-      status,author,Likes,UserLiked:[]}
+      status,author,Likes,UserLiked:[],comments:[]}
     const updatedPost=await service.updatePost(post.id,blog);
     if(updatedPost) {
       setTitle('');
@@ -137,7 +137,8 @@ function WriteBlogs() {
       userId: userId.$id,
       author,
       Likes,
-      UserLiked: []
+      UserLiked: [],
+      comments: [],
     };
     const createdBlog=await service.createPost(blog);
     if(createdBlog) {

@@ -35,6 +35,7 @@ function BlogPage() {
                                 featuredImage={(post.featuredimage)}
                                 author={post.author}
                                 Likes={post.UserLiked.length}
+                                comments={post.comments.length}
                             />
                         ))}
            </div>
