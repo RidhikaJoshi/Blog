@@ -101,7 +101,10 @@ function ReadBlog() {
                     {/* {post && console.log("ReadBlog:", post.Likes)} */}
                     <h1 className='text-white font-bold md:text-2xl text-lg'>{post && post.title}</h1>
                     <p className='text-white text-lg'>Author of the Blog: {post && post.author}</p>
-                    <p className='text-gray-300 flex flex-row items-center gap-2 ' >
+                    
+                    <img src={imageURL} alt={post && post.title} className='h-72 md:w-[50%] w-[90%]' />
+                    <p className='text-white text-lg'>{post && parse(post.content)}</p>
+                    <p className='text-gray-300 flex flex-row items-center gap-2' >
                         <FaHeart
                             onClick={() => {
                                 if(!user) navigate('/login');
@@ -126,9 +129,6 @@ function ReadBlog() {
                         />
                         {post &&  post.UserLiked.length}
                     </p>
-                    <img src={imageURL} alt={post && post.title} className='h-72 md:w-[50%] w-[90%]' />
-                    <p className='text-white text-lg'>{post && parse(post.content)}</p>
-
                     {user && blogUser && user === blogUser && (
                         <div className='flex flex-row items-center justify-center gap-5'>
                             <button className='bg-[#FD356D] text-white px-4 py-2 rounded-md' 
