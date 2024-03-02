@@ -141,7 +141,7 @@ const handlecommentsSubmit = async () => {
                     <img src={imageURL} alt={post && post.title} className='h-72 md:w-[50%] w-[90%]' />
                     <p className='text-white text-lg'>{post && parse(post.content)}</p>
                     <div className='flex flex-row items-center gap-6'>
-                        <p className='text-gray-300 flex flex-row items-center gap-2' >
+                        <p className='text-gray-300 flex flex-row items-center gap-2 cursor-pointer' >
                             <FaHeart
                                 onClick={() => {
                                     if(!user) navigate('/login');
@@ -166,7 +166,7 @@ const handlecommentsSubmit = async () => {
                             />
                             {post &&  post.UserLiked.length}
                         </p>
-                        <p className='text-white flex flex-row items-center gap-2' onClick={handlecomments}><AiFillMessage />{post && post.comments.length}</p>
+                        <p className='text-white flex flex-row items-center gap-2 cursor-pointer' onClick={handlecomments}><AiFillMessage />{post && post.comments.length}</p>
                     </div>
                     {seecomments && user && post && post.comments && (
                         <div className='w-full gap-6 flex flex-col'>
