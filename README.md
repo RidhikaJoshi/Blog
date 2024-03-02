@@ -10,6 +10,7 @@ BlogSphere is a web application crafted for users to articulate their thoughts a
 
 - **User Authentication:** Integrate Google OAuth-based user authentication to facilitate secure login functionality via Google accounts, streamlining the login process and offering users a familiar and trusted authentication method.
 - **Code Splitting:** Implemented code splitting to enhance performance by dynamically loading JavaScript only when necessary, optimizing initial page load time and improving user experience.
+- **Engagement Features Integration:** Implemented seamless user navigation using React Router, coupled with interactive like and comment functionality, enhancing user experience and fostering community engagement.
 - **Rich Text Editor:** Empowered by TinyMCE, the editor presents a range of formatting options, including font styles, colors, headings, indentations, images, tables, special characters, and numbering.
 - **Post Creation and Editing:** Users can create new posts and edit existing ones, with options to set the title, content, featured image, and status (active/inactive).
 - **Image Upload:** The website supports image upload functionality, allowing users to include featured images in their blog posts.
