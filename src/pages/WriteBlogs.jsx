@@ -24,6 +24,7 @@ function WriteBlogs() {
   const [author,setAuthor]=useState('');
   const [value,setValue]=useState('Publish'); 
   const [Likes,setLikes]=useState(0); 
+  const [views,setViews]=useState(0);
 
   useEffect(() => {
     async function getuser() {
@@ -52,6 +53,9 @@ function WriteBlogs() {
           setContent(response.content);
           setStatus(response.status);
           setSlug(response.slug);
+          setAuthor(response.author);
+          setLikes(response.Likes);
+          setViews(response.views);
         }
       } catch (error) {
         console.log('Error occured while fetching post', error)
@@ -90,7 +94,7 @@ function WriteBlogs() {
       title,
       content,
       featuredimage:file_upload.$id,
-      status,author,Likes,UserLiked:[],comments:[]}
+      status,author,Likes,UserLiked:[],comments:[],views}
     const updatedPost=await service.updatePost(post.id,blog);
     if(updatedPost) {
       setTitle('');
@@ -139,6 +143,7 @@ function WriteBlogs() {
       Likes,
       UserLiked: [],
       comments: [],
+      views,
     };
     const createdBlog=await service.createPost(blog);
     if(createdBlog) {

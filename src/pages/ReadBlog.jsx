@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import service from '../appwrite/database'
+import service from '../appwrite/database.js'
 import authService from '../appwrite/auth'
 import { useState } from 'react'
 import parse from "html-react-parser";
@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { FaHeart } from "react-icons/fa";
 import { AiFillMessage } from "react-icons/ai";
 import { FaUser } from "react-icons/fa";
+import { IoEyeSharp } from "react-icons/io5";
 
 function ReadBlog() {
     const [user, setUser] = useState(null);
@@ -40,24 +41,44 @@ function ReadBlog() {
         getuser();
     }, []);
 
-       useEffect(() => {
-            async function fetchPost() {
+    useEffect(() => {
+        async function fetchPost() {
+            try {
+                const response = await service.getPost(slug.id);
+                
+                if (response) {
+                setPost(response);
+                setBlogUser( response.userId);
+
+                }
+            } catch (error) {
+                console.log('Error occurred while fetching post', error);
+            }
+        }
+        fetchPost();
+    }, [slug.id]);
+
+
+    useEffect(()=>
+    {
+        if(post){
+            const update=async()=>{
                 try {
-                    const response = await service.getPost(slug.id);
-                    console.log('response:', response)
-                    if (response) {
-                        setPost(response);
-                        setBlogUser(response.userId);
-                    }
+                    post.views=post.views+1;
+                    const updatedPost = {
+                        ...post,
+                        views: post.views,
+                    };
+                    const response = await service.updatePost(slug.id, updatedPost);
+                    console.log('response:', response);
                 } catch (error) {
-                    console.log('Error occured while fetching post', error)
+                    console.log('Error occured while updating post', error);
                 }
             }
-            fetchPost();
-        }, [slug.id]);
-
-
-
+            update();
+        }
+    },[post]);
+    
     useEffect(() => {
         const fetchImage = async () => {
             try {
@@ -76,7 +97,7 @@ function ReadBlog() {
             try {
                 post.Likes=post.UserLiked.length;
                 const response = await service.updatePost(slug.id, post);
-                console.log('response:', response);
+                //console.log('response:', response);
             } catch (error) {
                 console.log('Error occured while updating post', error);
             }
@@ -91,7 +112,7 @@ function ReadBlog() {
     const handleDelete = async () => {
         try {
             const response = await service.deletePost(slug.id);
-            console.log('response:', response);
+            //console.log('response:', response);
             if (response) {
                 navigate('/blogs');
             }
@@ -141,7 +162,8 @@ const handlecommentsSubmit = async () => {
                     <img src={imageURL} alt={post && post.title} className='h-72 md:w-[50%] w-[90%]' />
                     <p className='text-white text-lg'>{post && parse(post.content)}</p>
                     <div className='flex flex-row items-center gap-6'>
-                        <p className='text-gray-300 flex flex-row items-center gap-2 cursor-pointer' >
+                        <p className='text-white flex flex-row items-center gap-2'><IoEyeSharp />{post && post.views}</p>
+                        <p className='text-white flex flex-row items-center gap-2 cursor-pointer' >
                             <FaHeart
                                 onClick={() => {
                                     if(!user) navigate('/login');
@@ -164,6 +186,7 @@ const handlecommentsSubmit = async () => {
                                 }}
                                 style={{ color:  post && post.UserLiked.includes(user) ? '#FD356D' : 'white' }}
                             />
+                            
                             {post &&  post.UserLiked.length}
                         </p>
                         <p className='text-white flex flex-row items-center gap-2 cursor-pointer' onClick={handlecomments}><AiFillMessage />{post && post.comments.length}</p>

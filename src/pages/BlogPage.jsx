@@ -10,7 +10,7 @@ function BlogPage() {
         async function fetchPosts() {
             try {
                 const response = await service.getAllPosts();
-                console.log('response:', response)
+                console.log('response of the blog Page:', response)
                 if (response.documents) {
                     setAllPosts(response.documents);
                 }
@@ -36,6 +36,7 @@ function BlogPage() {
                                 author={post.author}
                                 Likes={post.UserLiked.length}
                                 comments={post.comments.length}
+                                views={post.views}
                             />
                         ))}
            </div>

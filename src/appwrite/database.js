@@ -26,6 +26,7 @@ export class DatabaseService {
 		Likes,
 		UserLiked,
 		comments,
+		views,
 	}) {
 		try {
 			return await this.databases.createDocument(
@@ -42,6 +43,7 @@ export class DatabaseService {
 					Likes,
 					UserLiked,
 					comments,
+					views,
 				}
 			);
 		} catch (error) {
@@ -60,6 +62,7 @@ export class DatabaseService {
 			Likes,
 			UserLiked,
 			comments,
+			views,
 		}
 	) {
 		try {
@@ -76,6 +79,7 @@ export class DatabaseService {
 					Likes,
 					UserLiked,
 					comments,
+					views,
 				}
 			);
 		} catch (error) {
