@@ -9,6 +9,19 @@ import { FaHeart } from "react-icons/fa";
 import { AiFillMessage } from "react-icons/ai";
 import { FaUser } from "react-icons/fa";
 import { IoEyeSharp } from "react-icons/io5";
+import { FaShareAlt } from "react-icons/fa";
+import { IoCopy } from "react-icons/io5";
+import {
+  FacebookShareButton,
+  WhatsappShareButton,
+    LinkedinShareButton,
+    TwitterShareButton,
+  WhatsappIcon,
+  FacebookIcon,
+    LinkedinIcon,
+    TwitterIcon,
+} from 'react-share';
+import { toast } from 'react-toastify'
 
 function ReadBlog() {
     const [user, setUser] = useState(null);
@@ -21,7 +34,7 @@ function ReadBlog() {
     const [likes,setlikes]=useState(false);
     const [seecomments,setseecomments]=useState(false);
    const [commentvalue,setcommentvalue]=useState('');
-
+    const [share,setshare]=useState(false);
    
 
     useEffect(() => {
@@ -125,6 +138,11 @@ function ReadBlog() {
         if(!user) navigate('/login');
         setseecomments(!seecomments);
     }
+    const handleShare=()=>
+    {
+        if(!user) navigate('/login');
+        setshare(!share);
+    }
 
 const handlecommentsSubmit = async () => {
     if (!user) {
@@ -150,7 +168,7 @@ const handlecommentsSubmit = async () => {
     setcommentvalue('');
 }
 
-
+const shareUrl = window.location.href;
   return (
    <div className='w-full min-h-[85vh] flex items-center justify-center'>
         <div className=' min-h-[85vh] md:w-[90%] w-full flex flex-row items-center justify-center text-xl font-medium '>
@@ -190,6 +208,7 @@ const handlecommentsSubmit = async () => {
                             {post &&  post.UserLiked.length}
                         </p>
                         <p className='text-white flex flex-row items-center gap-2 cursor-pointer' onClick={handlecomments}><AiFillMessage />{post && post.comments.length}</p>
+                         <p className='text-white flex flex-row items-center gap-2 cursor-pointer' onClick={() => { handleShare(); console.log("share:", share); }}><FaShareAlt /> </p>
                     </div>
                     {seecomments && user && post && post.comments && (
                         <div className='w-full gap-6 flex flex-col'>
@@ -215,6 +234,56 @@ const handlecommentsSubmit = async () => {
                                 onClick={() => navigate('/write/' + slug.id)}>Edit</button>
                             <button className='bg-[#FD356D] text-white px-4 py-2 rounded-md' onClick={handleDelete}>Delete</button>
                         </div>
+                    )}
+                   
+                    
+                    {post && user && share && (
+                        
+                    <div className='min-h-20 min-w-44 bg-white flex flex-col p-2 gap-2'>
+                        <p className='text-black flex flex-row gap-2 items-center cursor-pointer' onClick={
+                            async () => {
+                                await navigator.clipboard.writeText(shareUrl);
+                                toast('Link copied to clipboard');
+                            }
+                        }><IoCopy size={28}/>Copy Link</p>
+                        <div className='flex flex-row items-center gap-2'>
+                            <LinkedinShareButton
+                                url={shareUrl}
+                                quote={'Share on Facebook'}
+                                hashtag={'#portfolio...'}
+                            >
+                                <LinkedinIcon size={32} round={true} />
+                            </LinkedinShareButton>
+                            <p>Share on LinkedIn</p></div>
+                            <div className='flex flex-row items-center gap-2'>
+                            <TwitterShareButton
+                                url={shareUrl}
+                                quote={'Share on Facebook'}
+                                hashtag={'#portfolio...'}
+                            >
+                                <TwitterIcon size={32} round={true} />
+                            </TwitterShareButton>
+                            <p>Share on Facebook</p></div>
+                        <div className='flex flex-row items-center gap-2'>
+                            <FacebookShareButton
+                                url={shareUrl}
+                                quote={'Share on Facebook'}
+                                hashtag={'#portfolio...'}
+                            >
+                                <FacebookIcon size={32} round={true} />
+                            </FacebookShareButton>
+                            <p>Share on Facebook</p></div>
+                        <div className='flex flex-row items-center gap-2 cursor pointer'>
+                        <WhatsappShareButton
+                            url={shareUrl}
+                            quote={'Share on Whatsapp'}
+                            hashtag={'#portfolio...'}
+                        >
+                            <WhatsappIcon size={32} round={true} />
+                        </WhatsappShareButton>
+                        Share on Whatsapp
+                        </div>
+                    </div>
                     )}
                 </div>
            
