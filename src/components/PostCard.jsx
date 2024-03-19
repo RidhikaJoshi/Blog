@@ -5,6 +5,7 @@ import { useState,useEffect } from 'react'
 import { FaHeart } from "react-icons/fa";
 import { AiFillMessage } from "react-icons/ai";
 import { IoEyeSharp } from "react-icons/io5";
+import { FaShareAlt } from "react-icons/fa";
 
 // here $id is the id of the entire post
 // in order to get preview of the image we use service.getfilepreviw(featuredImage)
@@ -34,6 +35,7 @@ function PostCard({$id,title,featuredImage,author,Likes,comments,views}) {
                         <p className='text-white flex flex-row items-center gap-2'><IoEyeSharp /> {views}</p>
                         <p className='text-white flex flex-row items-center gap-2'><FaHeart /> { Likes} </p>
                         <p className='text-white flex flex-row items-center gap-2'><AiFillMessage /> { comments} </p>
+                        <p className='text-white flex flex-row items-center gap-2'><FaShareAlt /> </p>
                     </div>
                      <button className='bg-[#FD356D] px-4 py-2 rounded-full italic'>Read</button>
                      
