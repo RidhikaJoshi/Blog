@@ -10,7 +10,7 @@ function BlogPage() {
         async function fetchPosts() {
             try {
                 const response = await service.getAllPosts();
-                console.log('response of the blog Page:', response)
+                //console.log('response of the blog Page:', response)
                 if (response.documents) {
                     setAllPosts(response.documents);
                 }
@@ -27,7 +27,7 @@ function BlogPage() {
            <div className='w-full  min-h-96 flex flex-row flex-wrap gap-4  justify-evenly'>
              {allPosts.length > 0 &&
                         allPosts.map((post) => (
-                            console.log(post.Likes),
+                            //console.log(post.Likes),
                             <PostCard
                                 key={post.$id}
                                 $id={post.$id}
