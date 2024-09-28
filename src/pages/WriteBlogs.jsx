@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import {Editor} from '@tinymce/tinymce-react';
-import tiny from '../config/config'
 import { useState } from 'react';
 import service from '../appwrite/database.js'
 import authservice from '../appwrite/auth'
@@ -8,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import config from '../config/config.js';
 
 function WriteBlogs() {
 
@@ -191,7 +190,7 @@ function WriteBlogs() {
 
           <label className='text-[#FD356D]'>Enter the Content of the Blog: </label>
             <Editor className='h-96 w-96 z-1 italic outline-none p-4'
-              apiKey={tiny.tinymceAPIKey}
+              apiKey={config.tinymceAPIKey}
             initialValue=''
             init={
               {branding: false,
