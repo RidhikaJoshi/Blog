@@ -29,6 +29,7 @@ function App() {
     } else {
       return (
         <div className='font-serif italic bg-black min-h-[100vh] w-full'>
+          
           <Header />
           <Suspense fallback={<div className='text-3xl font-bold bg-black text-[#FD356D] w-full h-[100vh] flex items-center justify-center'>Loading...</div>}>
             <Outlet />
