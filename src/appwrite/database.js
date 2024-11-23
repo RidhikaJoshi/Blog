@@ -127,6 +127,11 @@ export class DatabaseService {
 				[Query.equal("status", "active")]
 			);
 		} catch (error) {
+			console.log("databaseid " +config.appwriteDatabaseId);
+			console.log("collectioid "+config.appwriteCollectionId);
+			console.log("url " +config.appwriteURL);
+			console.log("projectid"+config.appwriteProjectId);
+			console.log("BUCKET_ID " +config.appwriteBucketId);
 			console.log("Appwrite getAllPosts error", error);
 		}
 		return false;
