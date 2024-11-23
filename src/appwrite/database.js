@@ -7,6 +7,7 @@ export class DatabaseService {
 	bucket;
 
 	constructor() {
+		console.log("Config Object:", config);
 		this.client
 			.setEndpoint(config.appwriteURL)
 			.setProject(config.appwriteProjectId);

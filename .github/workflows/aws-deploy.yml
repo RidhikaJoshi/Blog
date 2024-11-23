@@ -13,6 +13,15 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
+      - name: Set environment variables
+        run: |
+          echo "VITE_APPWRITE_URL=${{ secrets.VITE_APPWRITE_URL }}" >> $GITHUB_ENV
+          echo "VITE_APPWRITE_PROJECT_ID=${{ secrets.VITE_APPWRITE_PROJECT_ID }}" >> $GITHUB_ENV
+          echo "VITE_APPWRITE_DATABASE_ID=${{ secrets.VITE_APPWRITE_DATABASE_ID }}" >> $GITHUB_ENV
+          echo "VITE_APPWRITE_COLLECTION_ID=${{ secrets.VITE_APPWRITE_COLLECTION_ID }}" >> $GITHUB_ENV
+          echo "VITE_APPWRITE_BUCKET_ID=${{ secrets.VITE_APPWRITE_BUCKET_ID }}" >> $GITHUB_ENV
+          echo "VITE_TINYMCE_API_KEY=${{ secrets.VITE_TINYMCE_API_KEY }}" >> $GITHUB_ENV
+
       # Step 2: Install dependencies and build the project
       - name: Install Dependencies
         run: |
