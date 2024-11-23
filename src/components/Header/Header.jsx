@@ -50,7 +50,7 @@ function Header() {
 
   return (
     <>
-   <div className='transparent border-b-[0.5px] border-white text-white  w-full h-[5vh] flex flex-row items-center justify-between p-8 shadow sticky top-0 z-5 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20'>
+   <div className='transparent border-b-[0.5px] border-white text-white  w-full h-[5vh] flex flex-row items-center justify-between p-8 shadow sticky top-0 z-10 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20'>
         {/* This div contains logo */}
       <div className='text-[#FD356D] italic text-xl cursor-pointer'><Link to='/'>BlogSphere</Link></div>
 

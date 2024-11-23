@@ -196,7 +196,7 @@ function WriteBlogs() {
 
 
           <label className='text-[#FD356D]'>Enter the Content of the Blog: </label>
-            <Editor className='h-96 w-96 z-1 italic outline-none p-4'
+            <Editor className='h-96 w-96  italic outline-none p-4'
               apiKey={config.tinymceAPIKey}
             initialValue=''
             init={
