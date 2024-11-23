@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import authService from '../appwrite/auth.js'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
@@ -17,6 +17,15 @@ function SignUp() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [SignUp, setSignUp] = useState('Create Account');
+
+  
+  useEffect(()=>
+    {
+      window.scrollTo({
+        top: 0
+      });
+    }, []);
+
 
     const handleGoogleSignUp = async () => {
         authService.loginWithGoogle().then((user) => {

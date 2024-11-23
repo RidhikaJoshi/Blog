@@ -14,6 +14,13 @@ function WriteBlogs() {
    const navigate = useNavigate();
   const post=useParams();
   //console.log(post);
+
+  useEffect(()=>
+    {
+      window.scrollTo({
+        top: 0
+      });
+    }, []);
  
   const [slug,setSlug]=useState('');
   const [title,setTitle]=useState('');

@@ -35,7 +35,12 @@ function ReadBlog() {
     const [seecomments, setseecomments] = useState(false);
     const [commentvalue, setcommentvalue] = useState('');
     const [share, setshare] = useState(false);
-
+    useEffect(()=>
+        {
+          window.scrollTo({
+            top: 0
+          });
+        }, []);
 
     useEffect(() => {
         async function getuser() {

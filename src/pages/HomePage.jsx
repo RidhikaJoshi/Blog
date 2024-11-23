@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{ useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
@@ -6,9 +6,15 @@ function HomePage() {
 
  const authStatus=useSelector((state)=>state.auth.status);
 
+ useEffect(()=>
+  {
+    window.scrollTo({
+      top: 0
+    });
+  }, []);
+
   return (
     <div className='w-full min-h-screen flex flex-col items-center justify-center'>
-       <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
       {/* // Introduction div */}
           <div className='min-h-[100vh] w-[90%] flex flex-col items-center justify-center text-xl font-medium gap-10 text-white'>
               <p className='italic text-center md:text-4xl text-3xl font-bold text-white'>

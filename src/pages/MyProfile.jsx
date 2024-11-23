@@ -10,6 +10,13 @@ function MyProfile() {
     const [posts,setPosts]=useState([]);
     let count=0;
 
+    useEffect(()=>
+      {
+        window.scrollTo({
+          top: 0
+        });
+      }, []);
+
   useEffect(() => {
     async function getuser() {
       try

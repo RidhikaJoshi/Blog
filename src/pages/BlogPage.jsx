@@ -6,6 +6,12 @@ import PostCard from '../components/PostCard';
 function BlogPage() {
     const [loading,setLoading]=useState(true);
     const[allPosts,setAllPosts] = useState([]);
+    useEffect(()=>
+        {
+          window.scrollTo({
+            top: 0
+          });
+        }, []);
 
    useEffect(() => {
         async function fetchPosts() {

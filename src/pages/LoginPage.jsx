@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import authService from '../appwrite/auth.js'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
@@ -16,6 +16,13 @@ function LoginPage() {
   const [loginTest, setLoginTest] = useState('Login as Test User');
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(()=>
+    {
+      window.scrollTo({
+        top: 0
+      });
+    }, []);
 
   const handleGoogleLogin = async () => {
     authService.loginWithGoogle().then((user) => {
