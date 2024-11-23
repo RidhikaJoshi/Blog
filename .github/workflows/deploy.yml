@@ -1,37 +1,54 @@
-name: Deploy to AWS S3
+name: Deploy to S3 and CloudFront
 
 on:
   push:
     branches:
-      - main  # Adjust as per your branch
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      # Step 1: Checkout the repository
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
-    - name: Sync to S3
-      uses: jakejarvis/s3-sync-action@v0.5.1
-      with:
-        aws-region: ${{ secrets.AWS_REGION }}
-        bucket: ${{ secrets.AWS_S3_BUCKET }}
-        file: ./dist  # Replace with your build directory
-        recursive: true
-      env:
-        AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_REGION: 'eu-north-1'  # Updated to match your S3 region
+      # Step 2: Install dependencies and build the project
+      - name: Install Dependencies
+        run: |
+          npm install
+          npm run build
 
-    - name: Invalidate CloudFront cache
-      run: |
-        aws cloudfront create-invalidation \
-          --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
-          --paths "/*"
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_REGION: 'eu-north-1'  # Updated to match your CloudFront's region
+      # Step 3: Upload files to S3 with correct MIME types
+      - name: Upload to S3 with MIME Types
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+        run: |
+          # Upload JavaScript files with correct MIME type
+          aws s3 cp ./build s3://${{ secrets.AWS_S3_BUCKET }}/ --recursive \
+            --exclude "*" --include "*.js" --content-type "application/javascript"
+
+          # Upload CSS files with correct MIME type
+          aws s3 cp ./build s3://${{ secrets.AWS_S3_BUCKET }}/ --recursive \
+            --exclude "*" --include "*.css" --content-type "text/css"
+
+          # Upload HTML files with correct MIME type
+          aws s3 cp ./build s3://${{ secrets.AWS_S3_BUCKET }}/ --recursive \
+            --exclude "*" --include "*.html" --content-type "text/html"
+
+          # Upload images (e.g., PNG) with correct MIME type
+          aws s3 cp ./build s3://${{ secrets.AWS_S3_BUCKET }}/ --recursive \
+            --exclude "*" --include "*.png" --content-type "image/png"
+
+      # Step 4: Invalidate CloudFront cache
+      - name: Invalidate CloudFront Cache
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/*"
