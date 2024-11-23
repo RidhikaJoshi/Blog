@@ -25,7 +25,7 @@ function App() {
 
 
     if (loading == true) {
-      return <div className='text-3xl font-bold bg-black text-[#FD356D] w-full h-[100vh] flex items-center justify-center'>Loading...</div>;
+      return <div className='font-serif italic text-3xl font-bold bg-black text-[#FD356D] w-full h-[100vh] flex items-center justify-center'>Loading...</div>;
     } else {
       return (
         <div className='font-serif italic bg-black min-h-[100vh] w-full'>
