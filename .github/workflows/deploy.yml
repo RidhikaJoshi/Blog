@@ -17,7 +17,7 @@ jobs:
       - name: Install Dependencies
         run: |
           npm install
-          npm run build
+          npm run build 
 
       # Step 3: Upload to S3 with MIME Types
       - name: Upload to S3 with MIME Types
@@ -26,18 +26,18 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: eu-north-1 # Explicitly set the region
         run: |
-       
-          aws s3 cp ./build s3://${{ secrets.AWS_S3_BUCKET }}/ --recursive \
+         
+          aws s3 cp ./dist s3://${{ secrets.AWS_S3_BUCKET }}/ --recursive \
             --region eu-north-1 \
             --exclude "*" --include "*.js" --content-type "application/javascript"
 
-          
-          aws s3 cp ./build s3://${{ secrets.AWS_S3_BUCKET }}/ --recursive \
+         
+          aws s3 cp ./dist s3://${{ secrets.AWS_S3_BUCKET }}/ --recursive \
             --region eu-north-1 \
             --exclude "*" --include "*.css" --content-type "text/css"
 
          
-          aws s3 cp ./build s3://${{ secrets.AWS_S3_BUCKET }}/ --recursive \
+          aws s3 cp ./dist s3://${{ secrets.AWS_S3_BUCKET }}/ --recursive \
             --region eu-north-1 \
             --exclude "*" --include "*.html" --content-type "text/html"
 
