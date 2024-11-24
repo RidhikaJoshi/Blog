@@ -16,7 +16,7 @@ function HomePage() {
   <div className='w-full min-h-[85vh] flex flex-col items-center justify-center'>
   {/* // Introduction div */}
       <div className=' min-h-[90vh]  w-[90%] flex flex-col items-center justify-center text-2xl font-medium gap-10 p-10'>
-          <p className='italic text-center md:text-4xl text-3xl font-bold text-white'>
+          <p className='italic text-center md:text-3xl text-3xl font-bold text-white'>
 "Welcome to <span className='text-[#FD356D]'>BlogSphere</span> - Where stories come alive! </p>
 <p className='italic text-center text-white md:text-2xl text-xl'>Explore our collection of blogs, share your own tales. Let's make writing fun and easy for everyone!"</p>
 
@@ -28,7 +28,7 @@ function HomePage() {
 
   {/* // Performance div */}
     <div className='min-h-[65vh]   w-[90%] flex flex-col items-center justify-center text-xl font-medium gap-10 text-white'>
-        <p className='italic font-bold md:text-4xl text-2xl text-center '><span className='text-[#FD356D]'>Blogging platform</span> optimized for software developers and technical writers.</p>
+        <p className='italic font-bold md:text-3xl text-2xl text-center '><span className='text-[#FD356D]'>Blogging platform</span> optimized for software developers and technical writers.</p>
 
     <div className=' text-white min-h-[40vh] w-full flex md:flex-row flex-col gap-4 justify-between'>
     {/* // Div contains text */}
@@ -79,7 +79,7 @@ function HomePage() {
 
 
     <div className='min-h-[65vh]  w-[90%] flex flex-col items-center justify-center text-xl font-medium gap-10 text-white'>
-        <p className='italic font-bold md:text-4xl text-2xl text-center '>Transform your thoughts into <span className='text-[#FD356D]'> blogs</span> instantly!</p>
+        <p className='italic font-bold md:text-3xl text-2xl text-center '>Transform your thoughts into <span className='text-[#FD356D]'> blogs</span> instantly!</p>
         <button className='italic text-white bg-[#FD356D] px-4 py-2 rounded-full'><Link to={authStatus ? './write' : './login'}>Create your own Blogs!</Link></button>
 
     </div>

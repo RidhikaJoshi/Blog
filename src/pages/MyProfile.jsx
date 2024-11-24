@@ -49,11 +49,11 @@ function MyProfile() {
   return (
     <div className='w-full min-h-[85vh] flex flex-col items-center justify-center'>
       {/* // Introduction div */}
-          <div className=' min-h-[90vh]  md:w-[90%] w-full flex flex-col items-center justify-center text-2xl font-medium gap-10 p-10 text-white text-center'>
+          <div className='min-h-[90vh]  md:w-[90%] w-full flex flex-col items-center justify-center text-2xl font-medium gap-10 p-10 text-white text-center'>
 
                 <p className='md:text-3xl text-2xl md:font-bold underline'>User: {author}</p>
                 <p className='underline'>Blogs from the user:</p>
-                 <div className='w-full  min-h-96 flex flex-row flex-wrap gap-4  justify-evenly'>
+                 <div className=' w-full  min-h-96 flex flex-row flex-wrap gap-4 items-center justify-center'>
                 {posts &&  posts.map((post)=>{
                   if (post.author === author) {
                     count = count + 1;
