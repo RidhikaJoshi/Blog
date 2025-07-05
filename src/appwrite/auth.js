@@ -43,8 +43,8 @@ export class AuthService {
 		try {
 			return await this.account.createOAuth2Session(
 				"google",
-				"https://d2dn3c87zlk96y.cloudfront.net", // Success URL
-				"https://d2dn3c87zlk96y.cloudfront.net/login" // Failure URL
+				"https://www.blogsphere.ridhikajoshi.me/", // Success URL
+				"https://www.blogsphere.ridhikajoshi.me/login" // Failure URL
 			);
 		} catch (error) {
 			console.log("Appwrite loginWithGoogle error", error);
