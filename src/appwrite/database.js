@@ -171,7 +171,7 @@ export class DatabaseService {
 	//  THIS METHOD IS USED FOR GEETING FILE PREVIEW
 	async getfilepreviw(fileId) {
 		try {
-			const response = this.bucket.getFilePreview(
+			const response = this.bucket.getFileView(
 				config.appwriteBucketId,
 				fileId
 			);
